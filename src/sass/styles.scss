@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files
+  src/sass/styles.css
+*/
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import './variables';
+@import './mixins';
+
+body {
+  padding-top: 5rem;
+}
