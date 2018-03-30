@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import Post from '../../models/post.models';
 import {PostService} from '../../services/post.service';
 import {Response} from '@angular/http';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-home',
@@ -53,12 +54,7 @@ export class HomeComponent implements OnInit {
     this.postService.deletePost(post._id)
       .subscribe(res => {
         this.getPosts();
-      },
-        error => {
-          //in case of error, add the callback to bring the item back and re-throw the error.
-          error.callback=()=>this.items.splice(index, 0, item);
-          throw error;
-        });
+      });
   }
 
 

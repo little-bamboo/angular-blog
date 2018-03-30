@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, ErrorHandler} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
@@ -13,7 +13,9 @@ import {ProfileComponent} from './components/profile/profile.component';
 import {HttpClientModule} from '@angular/common/http';
 import {EditComponent} from './components/edit/edit.component';
 import {PostService} from './services/post.service';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from './material/material.module';
+import {GlobalErrorHandler} from './global-error-handler';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,11 @@ import {PostService} from './services/post.service';
     AngularFontAwesomeModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
-  providers: [PostService],
+  providers: [PostService, {provide: ErrorHandler, useClass: GlobalErrorHandler}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

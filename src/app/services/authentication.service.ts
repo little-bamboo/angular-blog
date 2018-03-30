@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
-import {map} from 'rxjs/operator/map';
+import {map} from 'rxjs/operators';
 
 /*
 Useful for type checking our application. The profile returns an object formatted as UserDetails, and the login and register endpoints

@@ -27,7 +27,7 @@ export class PostService {
   }
 
   // Read post, takes no arguments
-  getPosts(): Observable<Post[]> {
+  getPosts(): Observable<any> {
     return this.http.get(this.postUrl);
   }
 
@@ -50,8 +50,9 @@ export class PostService {
 
   // Default error handling method
   private handleError(error: any): Promise<any> {
-    console.error('An error occured', error.error.error.message);  // for dev purposes only
-    return Promise.reject(error.message || error);
+    console.error('An error occured', error.error.error.message); // for dev purposes only
+    throw new Error(error.error.error.message);
+    // return Promise.reject(error.message || error);
   }
 
 }
