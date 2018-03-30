@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to {{ title }}</h1>
+    <p class="lead">This is a simple jumbotron-style component for calling extra attention to
+      featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+
+      <div class="posts" *ngIf="postsList">
+        <table class="table">
+          <thead class="h">
+          <tr class="h">
+            <th class="h">Title</th>
+            <th class="h">Author</th>
+            <th class="h">Date</th>
+            <th class="h">Body</th>
+            <th class="h">Hidden</th>
+            <th class="h">Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="post" (dblclick)="editPost(post)" *ngFor="let post of postsList">
+            <td>{{post.title}}</td>
+            <td>{{post.author}}</td>
+            <td>{{post.date}}</td>
+            <td>{{post.body}}</td>
+            <td>{{post.hidden}}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deletePost(post)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <form>
+        <div class="form-row">
+          <div class="col-md-3">
+            <input type="text" name="title" id="title" [(ngModel)]="newPost.title" placeholder="Title"
+                   class="form-control">
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="form-control" id="body" name="body" [(ngModel)]="newPost.body" placeholder="Body">
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="author" name="author" [(ngModel)]="newPost.author"
+                   placeholder="Author">
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-primary" (click)="createPost()" type="submit">Add</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>
