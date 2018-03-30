@@ -1,20 +1,19 @@
 /* You can add global styles to this file, and also import other style files
   src/sass/styles.css
 */
-@import './variables';
-@import './mixins';
 // test theme implementation
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
-
+@import "~@angular/material/prebuilt-themes/purple-green.css";
 // Custom.scss
 // Option A: Include all of Bootstrap
-
 @import "../../node_modules/bootstrap/scss/bootstrap";
+@import './variables';
+@import './mixins';
 
 body {
   margin: 0;
-  font-family: Roboto, sans-serif;
+  font-family: "Segoe UI", "Source Sans Pro", Calibri, Candara, Arial, sans-serif !important;
   padding-top: 80px;
+  -webkit-font-smoothing: antialiased;
 }
 
 mat-card {
@@ -29,6 +28,10 @@ div.col-md-12 > div > mat-toolbar.mat-toolbar.mat-primary.mat-toolbar-single-row
 
 }
 
+.background-red {
+  background-color: rgb(153, 50, 50);
+}
+
 .done {
   position: fixed;
   bottom: 20px;
@@ -36,9 +39,12 @@ div.col-md-12 > div > mat-toolbar.mat-toolbar.mat-primary.mat-toolbar-single-row
   color: white;
 }
 
-
 // Sample material icon
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
+}
+
+.mat-simple-snackbar{
+  color: white;
 }
