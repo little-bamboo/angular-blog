@@ -1,12 +1,44 @@
 /* You can add global styles to this file, and also import other style files
   src/sass/styles.css
 */
-
 @import './variables';
 @import './mixins';
+// test theme implementation
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 body {
-  font-family: 'Raleway', serif;
+  margin: 0;
+  font-family: Roboto, sans-serif;
   padding-top: 80px;
+}
+
+mat-card {
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+div.col-md-12 > div > mat-toolbar.mat-toolbar.mat-primary.mat-toolbar-single-row {
+  justify-content: space-between;
+  margin: 20px;
+
+}
+
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}
+
+
+// Sample material icon
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
 }
