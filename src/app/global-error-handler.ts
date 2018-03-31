@@ -18,7 +18,9 @@ export class GlobalErrorHandler extends ErrorHandler {
       this.snacker = this.injector.get(MatSnackBar);
     }
 
-    this.snacker.open(error.message, 'button action', {duration: 2000});
+    const err_msg = 'Error: ' + error.message;
+
+    this.snacker.open(err_msg, 'Close', {duration: 2000, extraClasses: ['background-red']});
     super.handleError(error);
 
   }
