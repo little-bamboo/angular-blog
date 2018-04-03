@@ -16,7 +16,6 @@ import {AuthModule} from './components/auth/auth.module';
 import {ApiService, JwtService, PostService} from './shared/services';
 import {PostModule} from './components/post/post.module';
 import {AuthGuard} from './shared/services/auth-guard.service';
-import {ListErrorsComponent} from './shared/list-errors';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
 
@@ -25,7 +24,6 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    ListErrorsComponent,
   ],
   imports: [
     BrowserModule,

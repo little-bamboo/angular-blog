@@ -4,11 +4,13 @@ import {RouterModule} from '@angular/router';
 import {PostComponent} from './post.component';
 import {MaterialModule} from '../../material/material.module';
 import {SharedModule} from '../../shared';
+import {AuthGuard} from '../../shared/services/auth-guard.service';
 
 const postRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: 'post',
-    component: PostComponent
+    component: PostComponent,
+    canActivate: [AuthGuard]
   }
 ]);
 
@@ -21,7 +23,7 @@ const postRouting: ModuleWithProviders = RouterModule.forChild([
   declarations: [
     PostComponent
   ],
-  providers: []
+  providers: [AuthGuard]
 })
 export class PostModule {
 }
