@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import Post from '../../models/post.models';
-import {PostService} from '../../services/post.service';
+import Post from '../models/post.models';
+import {PostService} from '../shared/services/post.service';
 import {Response} from '@angular/http';
 import {MatCardModule} from '@angular/material/card';
 
@@ -12,14 +12,15 @@ import {MatCardModule} from '@angular/material/card';
 export class HomeComponent implements OnInit {
 
   title = 'Brian Schaper\'s Blog';
+  postsList: Post[];
 
   constructor(
     private postService: PostService) {
+
   }
 
   public newPost: Post = new Post();
 
-  postsList: Post[];
 
   ngOnInit(): void {
 

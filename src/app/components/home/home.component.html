@@ -1,13 +1,45 @@
 <div class="container">
-  <div class="jumbotron">
-    <h1 class="mat-display-1">Welcome to {{ title }}</h1>
-    <p class="lead">This is a simple jumbotron-style component for calling extra attention to
-      featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
+  <div class="home-page">
+
+    <div class="banner">
+      <div class="container">
+        <h1 class="logo-font">brianschaper</h1>
+        <p>A daily musing of technology, software development, data engineering, and advanced visualizations.</p>
+      </div>
+    </div>
+
+    <div class="container page">
+      <div class="row">
+
+        <div class="col-md-9">
+          <div class="feed-toggle">
+            <ul class="nav nav-pills outline-active">
+              <li class="nav-item">
+                <a class="nav-link">
+                  Your Feed
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  Global Feed
+                </a>
+              </li>
+            </ul>
+          </div>
+
+
+        </div>
+
+        <div class="col-md-3">
+          <div class="sidebar">
+            <p>Popular Tags</p>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
   <div class="row">
     <div class="col-md-2">
@@ -28,13 +60,13 @@
           </thead>
           <tbody>
           <tr class="post" (dblclick)="editPost(post)" *ngFor="let post of postsList">
-            <td>{{post.title}}</td>
-            <td>{{post.author}}</td>
-            <td>{{post.date}}</td>
-            <td>{{post.body}}</td>
-            <td>{{post.hidden}}</td>
+            <td>{{post?.title}}</td>
+            <td>{{post?.author}}</td>
+            <td>{{post?.date}}</td>
+            <td>{{post?.body}}</td>
+            <td>{{post?.hidden}}</td>
             <td>
-              <button mat-raised-button color="primary"><i class="fa fa-trash"></i></button>
+              <button mat-raised-button color="primary" (click)="deletePost(post)"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
         </table>
@@ -72,26 +104,26 @@
   <div class="row">
     <div class="col-md-12">
       <div>
-        <mat-toolbar color="primary">
-          <span><mat-icon>mood</mat-icon></span>
+        <!--<mat-toolbar color="primary">-->
+        <!--<span><mat-icon>mood</mat-icon></span>-->
 
-          <span>Yay, Material in Angular 2!</span>
+        <!--<span>Yay, Material in Angular 2!</span>-->
 
-          <button mat-icon-button [mat-menu-trigger-for]="menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-        </mat-toolbar>
-        <mat-menu x-position="before" #menu="matMenu">
-          <button mat-menu-item>Option 1</button>
-          <button mat-menu-item>Option 2</button>
-        </mat-menu>
+        <!--<button mat-icon-button [mat-menu-trigger-for]="menu">-->
+        <!--<mat-icon>more_vert</mat-icon>-->
+        <!--</button>-->
+        <!--</mat-toolbar>-->
+        <!--<mat-menu x-position="before" #menu="matMenu">-->
+        <!--<button mat-menu-item>Option 1</button>-->
+        <!--<button mat-menu-item>Option 2</button>-->
+        <!--</mat-menu>-->
 
-        <mat-card>
-          <button mat-button>All</button>
-          <button mat-raised-button>Of</button>
-          <button mat-raised-button color="primary">The</button>
-          <button mat-raised-button color="accent">Buttons</button>
-        </mat-card>
+        <!--<mat-card>-->
+        <!--<button mat-button>All</button>-->
+        <!--<button mat-raised-button>Of</button>-->
+        <!--<button mat-raised-button color="primary">The</button>-->
+        <!--<button mat-raised-button color="accent">Buttons</button>-->
+        <!--</mat-card>-->
 
         <span class="done">
     <button mat-fab>
