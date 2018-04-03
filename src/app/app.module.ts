@@ -1,42 +1,48 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule, ErrorHandler} from '@angular/core';
+import {NgModule, ErrorHandler, ModuleWithProviders} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
-import {PostComponent} from './components/post/post.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
-import {RegisterComponent} from './components/register/register.component';
-import {AppRoutingModule} from './app-routing.module';
-import {HomeComponent} from './components/home/home.component';
-import {LoginComponent} from './components/login/login.component';
-import {ProfileComponent} from './components/profile/profile.component';
-import {HttpClientModule} from '@angular/common/http';
-import {EditComponent} from './components/edit/edit.component';
-import {PostService} from './services/post.service';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material/material.module';
 import {GlobalErrorHandler} from './global-error-handler';
+import {HomeModule} from './components/home/home.module';
+import {SharedModule, HeaderComponent, FooterComponent, UserService, AuthenticationService} from './shared';
+
+import {RouterModule} from '@angular/router';
+import {AuthModule} from './components/auth/auth.module';
+import {ApiService, JwtService, PostService} from './shared/services';
+import {PostModule} from './components/post/post.module';
+import {AuthGuard} from './shared/services/auth-guard.service';
+import {ListErrorsComponent} from './shared/list-errors';
+
+const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {useHash: false});
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostComponent,
-    RegisterComponent,
-    HomeComponent,
-    LoginComponent,
-    ProfileComponent,
-    EditComponent,
+    FooterComponent,
+    HeaderComponent,
+    ListErrorsComponent,
   ],
   imports: [
     BrowserModule,
+    AuthModule,
     AngularFontAwesomeModule,
-    AppRoutingModule,
-    HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HomeModule,
+    rootRouting,
+    SharedModule,
+    PostModule
   ],
-  providers: [PostService, {provide: ErrorHandler, useClass: GlobalErrorHandler}],
+  providers: [PostService, {
+    provide: ErrorHandler,
+    useClass: GlobalErrorHandler
+  }, UserService, AuthenticationService, ApiService, AuthGuard, JwtService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
