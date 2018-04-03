@@ -1,4 +1,4 @@
-import {ErrorHandler, Injectable, Injector} from '@angular/core';
+import {ErrorHandler, Injectable, Injector, NgZone} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 
 @Injectable()
@@ -6,22 +6,28 @@ export class GlobalErrorHandler extends ErrorHandler {
 
   private snacker: MatSnackBar;
 
-  constructor(private injector: Injector) {
+  constructor(private injector: Injector, private zone: NgZone) {
     super();
   }
 
   handleError(error) {
 
-    console.log('global error');
+    this.zone.run(() => {
 
-    if (!this.snacker) {
-      this.snacker = this.injector.get(MatSnackBar);
-    }
+      console.log('global error');
 
-    const err_msg = 'Error: ' + error.message;
+      if (!this.snacker) {
+        this.snacker = this.injector.get(MatSnackBar);
+      }
 
-    this.snacker.open(err_msg, 'Close', {duration: 2000, extraClasses: ['background-red']});
-    super.handleError(error);
+      // Construct error message based on return value from the server
+      // const err_msg = 'Error: ' + error.error.message;
 
+      this.snacker.open(error, 'Close', {duration: 2000, extraClasses: ['background-red']});
+
+      super.handleError(error);
+
+    });
   }
+
 }
