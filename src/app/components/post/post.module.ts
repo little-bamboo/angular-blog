@@ -1,27 +1,27 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
-import {HomeComponent} from './home.component';
-import {SharedModule} from '../../shared/index';
+import {PostComponent} from './post.component';
 import {MaterialModule} from '../../material/material.module';
+import {SharedModule} from '../../shared';
 
-const homeRouting: ModuleWithProviders = RouterModule.forChild([
+const postRouting: ModuleWithProviders = RouterModule.forChild([
   {
-    path: '',
-    component: HomeComponent
+    path: 'post',
+    component: PostComponent
   }
 ]);
 
 @NgModule({
   imports: [
-    homeRouting,
+    postRouting,
     SharedModule,
     MaterialModule
   ],
   declarations: [
-    HomeComponent
+    PostComponent
   ],
   providers: []
 })
-export class HomeModule {
+export class PostModule {
 }

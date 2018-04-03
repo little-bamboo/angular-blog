@@ -1,5 +1,47 @@
 <div class="container">
-  <p>
-    Post Page Works!
-  </p>
+  <div class="col-lg-12">
+    <div class="row" *ngIf="postsList">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Date</th>
+          <th scope="col">Body</th>
+          <th scope="col">Hidden</th>
+          <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="post" (dblclick)="editPost(post)" *ngFor="let post of postsList">
+          <td>{{post?.title}}</td>
+          <td>{{post?.author}}</td>
+          <td>{{post?.date}}</td>
+          <td>{{post?.body}}</td>
+          <td>{{post?.hidden}}</td>
+          <td>
+            <button mat-raised-button color="primary" (click)="deletePost(post)"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+      </table>
+      <form>
+        <div class="form-row align-items-center">
+          <div class="col-lg-auto">
+            <input type="text" name="title" id="title" [(ngModel)]="newPost.title" placeholder="Title"
+                   class="form-control">
+          </div>
+          <div class="col-lg-auto">
+            <input type="text" class="form-control" id="body" name="body" [(ngModel)]="newPost.body" placeholder="Body">
+          </div>
+          <div class="col-lg-auto">
+            <input type="text" class="form-control" id="author" name="author" [(ngModel)]="newPost.author"
+                   placeholder="Author">
+          </div>
+          <div class="col-lg-auto">
+            <button mat-raised-button color="primary" (click)="createPost()">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

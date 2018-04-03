@@ -1,51 +1,51 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ArticleService} from '../../shared/services';
-import Article from '../../shared/models/article.models';
+import {PostService} from '../../shared/services';
+import {Post} from '../../shared/models';
 
 @Component({
-  selector: 'app-article',
-  templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss']
+  selector: 'app-post',
+  templateUrl: './post.component.html',
+  styleUrls: ['./post.component.scss']
 })
-export class ArticleComponent implements OnInit {
+export class PostComponent implements OnInit {
 
-  postsList: Article[];
-  public newPost: Article = new Article();
+  postsList: Post[];
+  public newPost: Post = {} as Post;
 
-  constructor(private articleService: ArticleService) {
+  constructor(private postService: PostService) {
   }
 
   ngOnInit() {
-    this.getArticles();
+    this.getPosts();
   }
 
-  getArticles() {
-    this.articleService.getPosts()
+  getPosts() {
+    this.postService.getPosts()
       .subscribe(posts => {
         this.postsList = posts;
       });
   }
 
   createPost() {
-    this.articleService.createPost(this.newPost)
+    this.postService.createPost(this.newPost)
       .subscribe((res) => {
 
         // Add the blog post to the list
         this.postsList.push(res.data);
 
         // Reset the fields to erase original post data
-        this.newPost = new Article();
+        this.newPost = {} as Post;
 
         // Refresh the list of posts
-        this.getArticles();
+        this.getPosts();
       });
   }
 
   deletePost(post) {
-    this.articleService.deletePost(post._id)
+    this.postService.deletePost(post._id)
       .subscribe(res => {
-        this.getArticles();
+        this.getPosts();
       });
   }
 
