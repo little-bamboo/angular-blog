@@ -1,0 +1,2 @@
+src/sass/* linguist-vendored
+*.ts linguist-vendored=false
