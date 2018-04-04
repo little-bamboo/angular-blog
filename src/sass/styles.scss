@@ -2,17 +2,23 @@
   src/sass/styles.css
 */
 // test theme implementation
-@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 // Custom.scss
 // Option A: Include all of Bootstrap
-@import "../../node_modules/bootstrap/scss/bootstrap";
-@import './variables';
-@import './mixins';
+@import "./mixins";
+// Global Styles
+@import "./colors";
+@import "./variables";
+@import "./global";
+@import "./animations";
+@import "./cards";
+// Google Font Raleway
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 body {
   margin: 0;
-  font-family: "Segoe UI", "Source Sans Pro", Calibri, Candara, Arial, sans-serif !important;
-  padding-top: 80px;
+  font-family: Raleway, Arial, sans-serif !important;
+  padding: 80px 0 80px 0;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -45,6 +51,105 @@ div.col-md-12 > div > mat-toolbar.mat-toolbar.mat-primary.mat-toolbar-single-row
   background-size: cover;
 }
 
-.mat-simple-snackbar{
+.mat-simple-snackbar {
   color: white;
+}
+
+/* FOOTER styling */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #f5f5f5;
+}
+
+/* DONE button styling */
+
+.done {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  color: white;
+}
+
+/* TILE Styling */
+.tile {
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .05);
+  overflow: hidden;
+  position: relative;
+}
+
+.tile:after {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\f1ce";
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  font-size: 2em;
+  color: #1199d3;
+  display: none;
+  -webkit-animation: b 2s infinite linear;
+  animation: b 2s infinite linear;
+  -webkit-transition: opacity .25s linear;
+  transition: opacity .25s linear;
+}
+
+.tile .tile-body, .tile .tile-footer, .tile .tile-widget {
+  -webkit-transition: opacity .25s linear;
+  transition: opacity .25s linear;
+  padding: 15px 25px;
+  position: relative;
+}
+
+.tile .tile-body, .tile .tile-footer, .tile .tile-widget {
+  -webkit-transition: opacity .25s linear;
+  transition: opacity .25s linear;
+  padding: 15px 25px;
+  position: relative;
+}
+
+/* ROW Styling */
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+/* TEXT Styling */
+.text-strong {
+  font-weight: 700;
+}
+
+.line-xl {
+  line-height: 32px;
+}
+
+.text-xl {
+  font-size: 32px;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+.col-xs-4 {
+  width: 33.33333%;
+}
+
+.col-xs-8 {
+  width: 66.66667%;
 }
