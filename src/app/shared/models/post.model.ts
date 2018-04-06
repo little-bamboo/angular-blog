@@ -1,14 +1,10 @@
 import {Profile} from './profile.model';
 
 export interface Post {
-  slug: string;
   title: string;
-  description: string;
+  author: Profile;
   body: string;
   tagList: string[];
   createdAt: string;
-  updatedAt: string;
-  favorited: boolean;
-  favoritesCount: number;
-  author: Profile;
+  image: string;
 }

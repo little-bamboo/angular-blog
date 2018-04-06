@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 
 import {User} from '../../models';
 import {UserService} from '../../services';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -11,8 +13,10 @@ import {UserService} from '../../services';
 export class HeaderComponent implements OnInit {
 
   constructor(
+    private router: Router,
     private userService: UserService
-  ) { }
+  ) {
+  }
 
   currentUser: User;
 
@@ -23,5 +27,13 @@ export class HeaderComponent implements OnInit {
       }
     );
   }
+
+
+  // Handle the logout from the nav menu
+  logout() {
+    this.userService.purgeAuth();
+    this.router.navigateByUrl('/');
+  }
+
 
 }

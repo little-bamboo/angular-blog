@@ -2,7 +2,8 @@
   src/sass/styles.css
 */
 // test theme implementation
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+//@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "./material";
 // Custom.scss
 // Option A: Include all of Bootstrap
 @import "./mixins";
@@ -12,8 +13,16 @@
 @import "./global";
 @import "./animations";
 @import "./cards";
-// Google Font Raleway
+// Google Fonts
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// specify theme class eg: <body class="my-theme"> ... </body>
+.my-theme {
+
+  // use our theme with angular-material-theme mixin
+  @include angular-material-theme($candy-app-theme);
+}
 
 body {
   margin: 0;
@@ -26,12 +35,6 @@ mat-card {
   max-width: 80%;
   margin: 2em auto;
   text-align: center;
-}
-
-div.col-md-12 > div > mat-toolbar.mat-toolbar.mat-primary.mat-toolbar-single-row {
-  justify-content: space-between;
-  margin: 20px;
-
 }
 
 .background-red {
@@ -152,4 +155,49 @@ p {
 
 .col-xs-8 {
   width: 66.66667%;
+}
+
+/* MATERIAL TABLE Styling */
+.mat-post-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.mat-post-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.mat-row {
+  max-height: 100px;
+}
+
+.mat-cell img {
+  max-width: 70px;
+}
+
+.mat-header-cell, .mat-cell {
+  justify-content: center;
+  display: flex;
+}
+
+/* NAV Pointer style */
+.logout {
+  cursor: pointer;
+}
+
+/* MATERIAL ICON styling*/
+.navbar > .container > .material-icons {
+  color: $theme-default;
 }
