@@ -15,6 +15,8 @@ import {AuthModule} from './auth/auth.module';
 import {ApiService, JwtService, PostService} from './shared/services';
 import {PostModule} from './post/post.module';
 import {AuthGuard} from './shared/services/auth-guard.service';
+import {McBreadcrumbsConfig, McBreadcrumbsModule} from 'ngx-breadcrumbs';
+
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
 
@@ -33,7 +35,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
     HomeModule,
     rootRouting,
     SharedModule,
-    PostModule
+    PostModule,
+    McBreadcrumbsModule.forRoot()
   ],
   providers: [PostService, {
     provide: ErrorHandler,
@@ -42,4 +45,24 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(breadcrumbsConfig: McBreadcrumbsConfig) {
+
+    breadcrumbsConfig.postProcess = (x) => {
+
+      // Ensure that the first breadcrumb always points to home
+
+      let y = x;
+
+      if (x.length && x[0].text !== 'Home') {
+        y = [
+          {
+            text: 'Home',
+            path: ''
+          }
+        ].concat(x);
+      }
+
+      return y;
+    };
+  }
 }

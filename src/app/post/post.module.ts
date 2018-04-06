@@ -14,7 +14,7 @@ const postRouting: ModuleWithProviders = RouterModule.forChild([
     component: PostComponent,
     canActivate: [NoAuthGuard],
     data: {
-      breadcrumb: 'post'
+      breadcrumbs: 'Post'
     }
   }
 ]);
@@ -23,7 +23,7 @@ const postRouting: ModuleWithProviders = RouterModule.forChild([
   imports: [
     postRouting,
     SharedModule,
-    MaterialModule
+    MaterialModule,
   ],
   declarations: [
     PostComponent
