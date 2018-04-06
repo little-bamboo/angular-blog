@@ -2,7 +2,7 @@ import {ModuleWithProviders, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
 import {HomeComponent} from './home.component';
-import {SharedModule} from '../../shared/index';
+import {SharedModule} from '../../shared';
 import {MaterialModule} from '../../material/material.module';
 
 const homeRouting: ModuleWithProviders = RouterModule.forChild([

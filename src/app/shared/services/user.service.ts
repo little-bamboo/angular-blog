@@ -10,6 +10,8 @@ import {ApiService} from './api.service';
 import {map} from 'rxjs/operators/map';
 import {distinctUntilChanged} from 'rxjs/operators/distinctUntilChanged';
 
+import {Router} from '@angular/router';
+
 
 @Injectable()
 export class UserService {
@@ -20,6 +22,7 @@ export class UserService {
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
   constructor(
+    private router: Router,
     private apiService: ApiService,
     private http: HttpClient,
     private jwtService: JwtService
@@ -38,8 +41,10 @@ export class UserService {
           err => this.purgeAuth()
         );
     } else {
-      // Remove any potential remnants of previous auth states
+      // Remove any potential remnants of previous auth states and push to home page
       this.purgeAuth();
+      this.router.navigateByUrl('/');
+
     }
   }
 

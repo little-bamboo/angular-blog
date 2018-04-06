@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Post} from '../models';
 import {Observable} from 'rxjs/Observable';
 import {Response} from '@angular/http';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 
 // Import the rxjs operator for mapping observable type
 import 'rxjs/add/operator/map';
@@ -16,10 +16,12 @@ export class PostService {
 
   constructor(
     private http: HttpClient
-  ) {}
+  ) {
+  }
 
   // Create the post object
-  createPost(post: Post): Observable<any> {
+  createPost(post): Observable<any> {
+
     // return an observable of http post request
     return this.http.post(`${this.postUrl}`, post);
   }
