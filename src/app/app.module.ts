@@ -17,6 +17,8 @@ import {PostModule} from './post/post.module';
 import {AuthGuard} from './shared/services/auth-guard.service';
 import {McBreadcrumbsConfig, McBreadcrumbsModule} from 'ngx-breadcrumbs';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
 
@@ -36,7 +38,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
     rootRouting,
     SharedModule,
     PostModule,
-    McBreadcrumbsModule.forRoot()
+    McBreadcrumbsModule.forRoot(),
+    NgbModule.forRoot()
   ],
   providers: [PostService, {
     provide: ErrorHandler,
@@ -45,6 +48,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
+  // Implementation outlined at https://github.com/McNull/ngx-breadcrumbs
   constructor(breadcrumbsConfig: McBreadcrumbsConfig) {
 
     breadcrumbsConfig.postProcess = (x) => {

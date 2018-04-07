@@ -4,6 +4,8 @@ import {User} from '../../models';
 import {UserService} from '../../services';
 import {Router} from '@angular/router';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-header',
@@ -11,6 +13,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  public isNavbarCollapsed = true;
 
   constructor(
     private router: Router,

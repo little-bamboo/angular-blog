@@ -1,28 +1,30 @@
 <!-- Fixed navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            (click)="isNavbarCollapsed = !isNavbarCollapsed">
       <span class="navbar-toggler-icon"></span>
     </button>
     <i class="material-icons pr-10">memory</i>
     <a class="navbar-brand" routerLink="/"> <strong>brian</strong>schaper</a>
 
-    <div class="collapse navbar-collapse">
+    <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <! -- Show this for logged out users -->
       <ul *appShowAuthed="false" class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="/" (click)="isNavbarCollapsed = !isNavbarCollapsed">Home
+            <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/register">Register</a>
+          <a class="nav-link" routerLink="/register" (click)="isNavbarCollapsed = !isNavbarCollapsed">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/login">Login</a>
+          <a class="nav-link" routerLink="/login" (click)="isNavbarCollapsed = !isNavbarCollapsed">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/post">Post</a>
+          <a class="nav-link" routerLink="/post" (click)="isNavbarCollapsed = !isNavbarCollapsed">Post</a>
         </li>
       </ul>
 
@@ -40,7 +42,7 @@
 
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button mat-raised-button color="primary">Search</button>
+        <button mat-raised-button class="bg-primary">Search</button>
 
       </form>
     </div>
