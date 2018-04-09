@@ -1,5 +1,6 @@
 import {ErrorHandler, Injectable, Injector, NgZone} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
+import {hasOwnProperty} from 'tslint/lib/utils';
 
 @Injectable()
 export class GlobalErrorHandler extends ErrorHandler {
@@ -20,10 +21,16 @@ export class GlobalErrorHandler extends ErrorHandler {
         this.snacker = this.injector.get(MatSnackBar);
       }
 
+      let err_msg = '';
+      if (error.hasOwnProperty(error.message)) {
+        err_msg = 'Error: ' + error.error.message;
+      } else {
+        err_msg = error;
+      }
       // Construct error message based on return value from the server
-      // const err_msg = 'Error: ' + error.error.message;
 
-      this.snacker.open(error, 'Close', {duration: 2000, extraClasses: ['background-red']});
+
+      this.snacker.open(err_msg, 'Close', {duration: 2000, extraClasses: ['background-red']});
 
       super.handleError(error);
 
