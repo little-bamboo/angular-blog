@@ -1,92 +1,14 @@
-<div class="container">
-
-  <div class="col-lg-12">
-    <form (submit)="createPost(formData)" #formData="ngForm">
-      <div class="form-row align-items-center">
-        <div class="col-lg-auto">
-          <input type="text" name="title" id="title" placeholder="Title" class="form-control" ngModel>
-        </div>
-        <div class="col-lg-auto">
-          <input type="text" class="form-control" id="body" name="body" placeholder="Body" ngModel>
-        </div>
-        <div class="col-lg-auto">
-          <input type="text" class="form-control" id="author" name="author" placeholder="Author" ngModel>
-        </div>
-        <div class="col-lg-auto">
-          <input type="file" class="form-control-file" id="image" name="image" (change)="onFileChanged($event)"
-                 ngModel/>
-        </div>
-        <div class="col-lg-auto">
-          <button mat-raised-button class="bg-primary">Add</button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="row">
-    <div class="mat-post-header col-md-12">
-      <mat-form-field>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-      </mat-form-field>
+<div *ngIf="post" class="post-page">
+  <div class="banner">
+    <div class="container">
+      {{ post.title }}
     </div>
-    <div class="mat-post-container col-md-12">
-      <mat-table [dataSource]="dataSource" matSort>
-
-        <!-- Title Column -->
-        <ng-container matColumnDef="title">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.title}}</mat-cell>
-        </ng-container>
-
-        <!-- Author Column -->
-        <ng-container matColumnDef="author">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Author</mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.author}}</mat-cell>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="createdAt">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Created</mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.createdAt| date:'medium' }}</mat-cell>
-        </ng-container>
-
-        <!-- Body Column -->
-        <ng-container matColumnDef="body">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Body</mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.body}}</mat-cell>
-        </ng-container>
-
-        <!-- Image Column -->
-        <ng-container matColumnDef="image">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
-          <mat-cell *matCellDef="let row">
-            <img src="{{postUrl}}/uploads/images/{{row.image}}" class="rounded img-fluid">
-          </mat-cell>
-        </ng-container>
-
-        <!-- Delete Column -->
-        <ng-container matColumnDef="buttons">
-          <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
-
-          <mat-cell *matCellDef="let row">
-            <button mat-button [matMenuTriggerFor]="menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="editPost(row)">Edit</button>
-              <button mat-menu-item (click)="duplicatePost(row)">Duplicate</button>
-              <button mat-menu-item (click)="deletePost(row)">Delete</button>
-            </mat-menu>
-          </mat-cell>
-
-        </ng-container>
-
-
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;">
-        </mat-row>
-      </mat-table>
-
-      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-12">
+        <div [innerHTML]="post.body | markdown"></div>
+      </div>
     </div>
   </div>
 </div>

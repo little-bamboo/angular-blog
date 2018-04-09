@@ -2,33 +2,19 @@ import {ModuleWithProviders, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
 import {PostComponent} from './post.component';
-import {MaterialModule} from '../material/material.module';
-import {AuthGuard} from '../shared/services/auth-guard.service';
-
 import {SharedModule} from '../shared';
-import {NoAuthGuard} from '../shared/services/no-auth-guard.service';
-
-const postRouting: ModuleWithProviders = RouterModule.forChild([
-  {
-    path: 'post',
-    component: PostComponent,
-    canActivate: [NoAuthGuard],
-    data: {
-      breadcrumbs: 'Post'
-    }
-  }
-]);
+import {PostRoutingModule} from './post-routing.module';
+import {MarkdownPipe} from './markdown.pipe';
+import {PostResolver} from './post-resolver.service';
 
 @NgModule({
-  imports: [
-    postRouting,
-    SharedModule,
-    MaterialModule,
+  imports: [SharedModule,
+    PostRoutingModule
   ],
-  declarations: [
-    PostComponent
-  ],
-  providers: [AuthGuard]
+  declarations: [PostComponent, MarkdownPipe],
+  providers: [
+    PostResolver
+  ]
 })
 export class PostModule {
 }
