@@ -7,4 +7,5 @@ export interface Post {
   tagList: string[];
   createdAt: string;
   image: string;
+  _id: string
 }

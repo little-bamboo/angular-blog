@@ -43,7 +43,7 @@ export class UserService {
     } else {
       // Remove any potential remnants of previous auth states and push to home page
       this.purgeAuth();
-      this.router.navigateByUrl('/');
+      // this.router.navigateByUrl('/');
 
     }
   }
