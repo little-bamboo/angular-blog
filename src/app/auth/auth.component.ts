@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Errors} from '../shared/models/index';
-import {UserService} from '../shared/services/index';
+import {Errors} from '../core/models/index';
+import {UserService} from '../core/services/index';
 
 @Component({
   selector: 'app-auth',
@@ -52,7 +52,7 @@ export class AuthComponent implements OnInit {
 
     this.userService.attemptAuth(this.authType, credentials)
       .subscribe(
-        data => this.router.navigateByUrl('/post'),
+        data => this.router.navigateByUrl('/post-list'),
         err => {
           this.errors = err;
           this.isSubmitting = false;
