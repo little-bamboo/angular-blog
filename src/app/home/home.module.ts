@@ -6,9 +6,16 @@ import {MaterialModule} from '../shared/material/material.module';
 
 import {SharedModule} from '../shared';
 
+const homeRouting: ModuleWithProviders = RouterModule.forChild([
+  {
+    path: 'home',
+    component: HomeComponent,
+  }
+]);
 
 @NgModule({
   imports: [
+    homeRouting,
     SharedModule,
     MaterialModule
   ],
