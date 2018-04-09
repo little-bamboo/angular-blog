@@ -6,8 +6,10 @@
             (click)="isNavbarCollapsed = !isNavbarCollapsed">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <span>
     <i class="material-icons pr-10">memory</i>
     <a class="navbar-brand" routerLink="/"> <strong>brian</strong>schaper</a>
+      </span>
 
     <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -24,7 +26,7 @@
           <a class="nav-link" routerLink="/login" (click)="isNavbarCollapsed = !isNavbarCollapsed">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/post" (click)="isNavbarCollapsed = !isNavbarCollapsed">Post</a>
+          <a class="nav-link" routerLink="/posts" (click)="isNavbarCollapsed = !isNavbarCollapsed">Posts</a>
         </li>
       </ul>
 

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
-import {User} from '../../models';
-import {UserService} from '../../services';
+import {User} from '../../../core/models';
+import {UserService} from '../../../core/services';
 import {Router} from '@angular/router';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
