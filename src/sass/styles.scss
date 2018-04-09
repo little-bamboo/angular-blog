@@ -228,6 +228,7 @@ p {
 }
 
 /* MATERIAL ICON styling*/
-.navbar > .container > .material-icons {
+.navbar > .container > span > .material-icons {
   color: $theme-default;
+  vertical-align: text-bottom;
 }
