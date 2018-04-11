@@ -66,6 +66,34 @@
     </div>
 
   </div>
+  <div class="row tile">
+    <div class="col-md-8">
+      <div>
+        <div style="display: block">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <button (click)="randomize()">Update</button>
+      </div>
+    </div>
+    <div class="col-md-4">
 
-
+      <canvas baseChart
+              [data]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+  <div class="row tile">
+    <app-advanced-pie></app-advanced-pie>
+  </div>
 </div>

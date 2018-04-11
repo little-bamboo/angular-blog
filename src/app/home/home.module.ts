@@ -5,6 +5,9 @@ import {HomeComponent} from './home.component';
 import {MaterialModule} from '../shared/material/material.module';
 
 import {SharedModule} from '../shared';
+import {ChartsModule} from 'ng2-charts';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {AdvancedPieComponent} from '../advanced-pie/advanced-pie.component';
 
 const homeRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -17,10 +20,14 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
   imports: [
     homeRouting,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    ChartsModule,
+    NgxChartsModule
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    AdvancedPieComponent
+
   ],
   providers: []
 })
