@@ -22,7 +22,7 @@ const newPostRouting: ModuleWithProviders = RouterModule.forChild([
   imports: [
     newPostRouting,
     SharedModule,
-    MaterialModule
+    MaterialModule,
   ],
   declarations: [],
   providers: [

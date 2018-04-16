@@ -8,6 +8,7 @@ import {ListErrorsComponent} from './list-errors';
 
 import {ShowAuthedDirective} from './show-authed.directive';
 import {SlugifyPipe} from './slugify';
+import {QuillModule} from 'ngx-quill';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {SlugifyPipe} from './slugify';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    QuillModule
   ],
   declarations: [ShowAuthedDirective, ListErrorsComponent, SlugifyPipe],
   exports: [
@@ -26,7 +28,8 @@ import {SlugifyPipe} from './slugify';
     HttpClientModule,
     RouterModule,
     ShowAuthedDirective,
-    ListErrorsComponent
+    ListErrorsComponent,
+    QuillModule
   ]
 })
 export class SharedModule {

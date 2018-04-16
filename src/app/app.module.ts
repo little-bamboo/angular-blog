@@ -28,7 +28,7 @@ import {NewPostModule} from './new-post/new-post.module';
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

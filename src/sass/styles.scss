@@ -17,6 +17,10 @@
 // Google Fonts
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+// Quill Styling
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
 
 // specify theme class eg: <body class="my-theme"> ... </body>
 .my-theme {

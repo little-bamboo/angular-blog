@@ -24,13 +24,6 @@ export class PostComponent implements OnInit {
 
     console.log('init post component');
 
-    // this.route.data.subscribe(
-    //   (data: { post: Post }) => {
-    //     console.log(data);
-    //     this.post = data.post;
-    //   }
-    // );
-
     this.getPost();
   }
 
@@ -39,7 +32,7 @@ export class PostComponent implements OnInit {
 
     this.postService.get(slug)
       .subscribe(data => {
-        console.log('postdata: ', JSON.stringify(data));
+        // console.log('postdata: ', JSON.stringify(data));
         this.post = data;
       });
   }

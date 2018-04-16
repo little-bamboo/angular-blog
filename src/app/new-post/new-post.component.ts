@@ -1,7 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Post} from '../core/models';
 import {PostService} from '../core/services';
+
+import {QuillEditorComponent} from 'ngx-quill/src/quill-editor.component';
+import Quill from 'quill';
+
 
 @Component({
   selector: 'app-new-post',
@@ -10,8 +14,12 @@ import {PostService} from '../core/services';
 })
 export class NewPostComponent implements OnInit {
 
+  @ViewChild('editor') editor: QuillEditorComponent;
+
+
   postForm: FormGroup;
   public files: any[];
+  public introFiles: any[];
   public newPost: Post = {} as Post;
 
 
@@ -32,10 +40,11 @@ export class NewPostComponent implements OnInit {
         tags: new FormControl(),
         createdAt: new FormControl(),
         image: new FormControl(),
-        intoImage: new FormControl(),
+        introImage: new FormControl(),
         slug: new FormControl({value: '', disabled: true})
       });
   }
+
 
   ngOnInit() {
   }
@@ -45,9 +54,9 @@ export class NewPostComponent implements OnInit {
 
   }
 
-  // onIntroFileChaged(event: any){
-  //   this.introFiles = event.target.files;
-  // }
+  onIntroFileChaged(event: any) {
+    this.introFiles = event.target.files;
+  }
 
   createPost(postData) {
 
@@ -70,6 +79,13 @@ export class NewPostComponent implements OnInit {
     for (const file in this.files) {
       if (this.files.hasOwnProperty(file)) {
         formData.append('image', this.files[file], this.files[file].name);
+      }
+    }
+
+    // Iterate through files array and pull into fordata object
+    for (const file in this.introFiles) {
+      if (this.files.hasOwnProperty(file)) {
+        formData.append('introImage', this.files[file], this.files[file].name);
       }
     }
 
