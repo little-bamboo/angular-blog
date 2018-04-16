@@ -7,6 +7,8 @@ import {RouterModule} from '@angular/router';
 import {ListErrorsComponent} from './list-errors';
 
 import {ShowAuthedDirective} from './show-authed.directive';
+import {SlugifyPipe} from './slugify';
+
 
 @NgModule({
   imports: [
@@ -16,7 +18,7 @@ import {ShowAuthedDirective} from './show-authed.directive';
     HttpClientModule,
     RouterModule
   ],
-  declarations: [ShowAuthedDirective, ListErrorsComponent],
+  declarations: [ShowAuthedDirective, ListErrorsComponent, SlugifyPipe],
   exports: [
     CommonModule,
     FormsModule,

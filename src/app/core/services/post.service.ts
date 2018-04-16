@@ -40,28 +40,28 @@ export class PostService {
   // Create the post-list object
   save(post): Observable<any> {
 
-    if (post._id) {
+    if (post.slug) {
 
-      resizeTo();
-
+      return this.http.put(`${this.postUrl}/` + post.slug, post);
 
     } else {
-
-
-      console.log('saving post');
       // return an observable of http post-list request
       return this.http.post(`${this.postUrl}`, post);
     }
   }
 
   // Read post-list, takes no arguments
-  getPosts(): Observable<any> {
-    return this.http.get(this.postUrl);
+  getPosts(): Observable<Post[]> {
+    return this.apiService.get('/api/posts/');
   }
 
-  get(title): Observable<Post> {
-    console.log(title)
-    return this.apiService.get('/api/posts/' + title);
+  get(slug): Observable<Post> {
+
+    return this.apiService.get('/api/posts/' + slug)
+      .pipe(
+        map(
+          (data) => data
+        ));
   }
 
   // Update the post-list object

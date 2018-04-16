@@ -3,6 +3,8 @@ import {PostService} from '../core/services/index';
 import {Post} from '../core/models/index';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {environment} from '../../environments/environment';
+import {SlugifyPipe} from '../shared/slugify';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -13,8 +15,6 @@ import {environment} from '../../environments/environment';
 export class PostListComponent implements AfterViewInit {
 
   postsList: Post[];
-  public newPost: Post = {} as Post;
-  public files: any[];
 
   postUrl = `${environment.api_url}`;
 
@@ -31,15 +31,12 @@ export class PostListComponent implements AfterViewInit {
     this.dataSource.filter = filterValue;
   }
 
-  constructor(private postService: PostService) {
+  constructor(
+    private postService: PostService,
+    private router: Router
+  ) {
 
-    this.files = [];
-
-    postService.getPosts().subscribe(
-      data => {
-        this.postsList = data;
-        this.dataSource.data = this.postsList;
-      });
+    this.getPosts();
   }
 
   getPosts() {
@@ -50,52 +47,10 @@ export class PostListComponent implements AfterViewInit {
       });
   }
 
-  onFileChanged(event: any) {
-    this.files = event.target.files;
-
+  newPost() {
+    this.router.navigateByUrl('/new-post');
   }
 
-  createPost(postData) {
-
-    // Build formdata object and assign form values from the ngform object
-    const formData = new FormData();
-    const postValues = postData.value;
-
-    for (const key in postValues) {
-      if (postValues.hasOwnProperty(key)) {
-        formData.append(key, postValues[key]);
-      }
-    }
-
-    // Create timestamp for createdat
-    const createdAt = new Date(Date.now());
-    const created = createdAt.toString();
-    formData.append('createdAt', created);
-
-    // Iterate through files array and pull into fordata object
-    for (const file in this.files) {
-      if (this.files.hasOwnProperty(file)) {
-        formData.append('image', this.files[file], this.files[file].name);
-      }
-    }
-
-    this.postService.save(formData)
-      .subscribe((res) => {
-
-          // Add the blog post-list to the list
-          this.postsList.push(res.data);
-
-          // Erase form data after successful response
-          postData.reset();
-
-          // Refresh the list of posts
-          this.getPosts();
-        },
-        (err) => {
-          console.log(err);
-          throw err;
-        });
-  }
 
   deletePost(post) {
     this.postService.deletePost(post._id)
@@ -110,6 +65,7 @@ export class PostListComponent implements AfterViewInit {
 
   editPost(post) {
     console.log('editing post-list: ' + JSON.stringify(post));
+    this.router.navigateByUrl('/edit/' + post.slug);
   }
 
   /**

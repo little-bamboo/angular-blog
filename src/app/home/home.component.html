@@ -7,31 +7,106 @@
     </div>
   </div>
 </div>
-<div class="container pt-15">
+
+<!-- Overlap Image Cards -->
+
+<div class="content-wrapper">
+
   <div class="row">
-    <div class="col-md-4">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
+    <div class="col-lg-4 col-md-4 col-sm-12 card-container pt-60 pr-10 pl-10">
+      <div class="card card-banner card-inverse bg-greensea text-center">
+        <div class="card-body">
+          <div class="card-img overlap">
+            <img src="../../assets/images/elements/14.png" alt="element 06" width="170" class="card-shadow">
+          </div>
+          <div class="card-block pt-15">
+            <h4 class="card-title">Angular 6 is here!</h4>
+            <p class="card-text">Automate and deploy front-end projects even faster.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 card-container pt-60 pr-10 pl-10">
+      <div class="card card-banner card-inverse bg-orange text-center">
+        <div class="card-body">
+          <div class="card-img overlap">
+            <img src="../../assets/images/elements/14.png" alt="element 03" width="170" class="card-shadow">
+          </div>
+          <div class="card-block pt-15">
+            <h4 class="card-title">Streaming Analytics</h4>
+            <p class="card-text">Featuring the classification of streaming data.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 card-container pt-60 pr-10 pl-10">
+      <div class="card card-banner card-inverse bg-blue text-center">
+        <div class="card-body">
+          <div class="card-img overlap">
+            <img src="../../assets/images/elements/14.png" alt="element 07" width="170" class="card-shadow">
+          </div>
+          <div class="card-block pt-15">
+            <h4 class="card-title">Visual Analytics</h4>
+            <p class="card-text">Discover the hidden meanings in data.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Overlap Image Card Ends -->
+<div class="container">
+  <div class="row">
+
+    <!-- Left column -->
+
+    <div class="left-col">
+      <!-- Masonry style columns -->
+      <div class="card-columns">
+
+        <!-- Card Tiles -->
+        <div class="card tile" *ngFor="let post of postsList">
+          <div class="card-body">
+            <img class="card-img-top img-fluid" src="{{postUrl}}/uploads/images/{{post.image}}" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">{{post.title}}</h4>
+              <p class="card-text">{{post.body}}</p>
+              <a class="btn btn-outline-warning" [routerLink]="['/post', post.title ]">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Tiles End -->
+        <!-- Masonry style columns end -->
+      </div>
     </div>
 
-    <div class="col-md-4 col-lg-2">
+    <!-- Left Column End -->
+
+    <!-- Right Column -->
+
+    <div class="right-col">
+
+      <!-- Vertical Nav -->
+
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+
+      <!-- Vertical Nav End -->
+
       <div class="tile">
         <div class="tile-widget bg-primary text-center p-30">
           <i class="fa fa-shopping-cart fa-3x"></i>
@@ -41,59 +116,59 @@
           <span class="text-muted">Users</span>
         </div>
       </div>
-    </div>
 
-    <div class="card-container col-lg-3 col-sm-6 col-sm-12">
-      <div class="card">
-        <div class="front bg-primary"><!-- row -->
-          <div class="row"><!-- col -->
-            <div class="col-xs-4"><i class="fa fa-users fa-4x"></i></div><!-- /col --><!-- col -->
-            <div class="col-xs-8"><p class="text-xl line-xl text-strong mb-0">3 659</p><span>Blog Posts</span></div>
-            <!-- /col -->
-          </div><!-- /row -->
-        </div>
-        <div class="back bg-primary"><!-- row -->
-          <div class="row"><!-- col -->
-            <div class="col-xs-4"><a href="javascript:;"><i class="fa fa-cog fa-2x"></i> Settings</a></div><!-- /col -->
-            <!-- col -->
-            <div class="col-xs-4"><a href="javascript:;"><i class="fa fa-chain-broken fa-2x"></i> Content</a></div>
-            <!-- /col --><!-- col -->
-            <div class="col-xs-4"><a href="javascript:;"><i class="fa fa-ellipsis-h fa-2x"></i> More</a></div>
-            <!-- /col -->
-          </div><!-- /row -->
+      <div class="card-container">
+        <div class="card">
+          <div class="front bg-primary"><!-- row -->
+            <div class="row"><!-- col -->
+              <div class="col-xs-4"><i class="fa fa-users fa-4x"></i></div><!-- /col --><!-- col -->
+              <div class="col-xs-8"><p class="text-xl line-xl text-strong mb-0">3 659</p><span>Blog Posts</span></div>
+              <!-- /col -->
+            </div><!-- /row -->
+          </div>
+          <div class="back bg-primary"><!-- row -->
+            <div class="row"><!-- col -->
+              <div class="col-xs-4"><a href="javascript:;"><i class="fa fa-cog fa-2x"></i> Settings</a></div>
+              <!-- /col -->
+              <!-- col -->
+              <div class="col-xs-4"><a href="javascript:;"><i class="fa fa-chain-broken fa-2x"></i> Content</a></div>
+              <!-- /col --><!-- col -->
+              <div class="col-xs-4"><a href="javascript:;"><i class="fa fa-ellipsis-h fa-2x"></i> More</a></div>
+              <!-- /col -->
+            </div><!-- /row -->
+          </div>
         </div>
       </div>
     </div>
 
-  </div>
-  <div class="row tile">
-    <div class="col-md-8">
-      <div>
-        <div style="display: block">
-          <canvas baseChart
-                  [datasets]="barChartData"
-                  [labels]="barChartLabels"
-                  [options]="barChartOptions"
-                  [legend]="barChartLegend"
-                  [chartType]="barChartType"
-                  (chartHover)="chartHovered($event)"
-                  (chartClick)="chartClicked($event)"></canvas>
-        </div>
-        <button (click)="randomize()">Update</button>
-      </div>
-    </div>
-    <div class="col-md-4">
+    <!-- Right Column Ends -->
 
-      <canvas baseChart
-              [data]="lineChartData"
-              [labels]="lineChartLabels"
-              [options]="lineChartOptions"
-              [chartType]="lineChartType"
-              (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
-    </div>
-  </div>
-  <div class="row tile">
-    <app-advanced-pie></app-advanced-pie>
   </div>
 </div>
+
+<!-- Chart List -->
+<div class="container pt-15">
+  <div class="row tile">
+    <div class="col-md-12">
+      <app-bar-chart></app-bar-chart>
+    </div>
+  </div>
+  <div class="row tile">
+    <div class="col-md-12">
+      <app-line-chart></app-line-chart>
+    </div>
+  </div>
+  <div class="row tile">
+    <div class="col-md-12">
+      <app-advanced-pie></app-advanced-pie>
+    </div>
+  </div>
+  <!-- Area Chart Starts -->
+  <div class="row tile">
+    <div class="col-md-12">
+      <app-area-chart></app-area-chart>
+    </div>
+  </div>
+  <!-- Area Chart Ends -->
+</div>
+<!-- End Chart List -->

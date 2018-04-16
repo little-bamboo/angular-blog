@@ -2,11 +2,18 @@
 /************* CARDS *************/
 /*********************************/
 
+$break-small: 320px;
+$break-medium: 860;
+$break-large: 1200px;
+
 .card-container {
   position: relative;
 
+  .card-banner {
+    min-height: 325px;
+  }
+
   .card {
-    min-height: 110px;
     margin-bottom: 30px;
     position: relative;
     perspective: 600px;
@@ -16,9 +23,34 @@
     border: 0px;
     background: $content-bg;
 
+    .card-body {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+      border-radius: 6px;
+    }
+
+    .card-img {
+      position: relative;
+      .card-title {
+        color: #fff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        max-width: 100%;
+        padding: 24px;
+      }
+      &.overlap {
+        margin-top: -70px;
+      }
+
+      .card-shadow {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+        border-radius: 6px;
+      }
+    }
+
     .front {
       border-radius: 6px;
-      box-shadow: 0 5px 15px rgba(0,0,0,.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .05);
       height: 100%;
       position: relative;
       width: 100%;
@@ -46,12 +78,13 @@
       .back {
         z-index: 12;
         transform: rotateX(0deg) rotateY(0deg);
+        min-height: 100px !important;
       }
     }
 
     .back {
       border-radius: 6px;
-      box-shadow: 0 5px 15px rgba(0,0,0,.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, .05);
       position: absolute;
       top: 0;
       border: 0;
@@ -71,11 +104,11 @@
       /* -- transition is the magic sauce for animation -- */
       @include transition(all .4s ease-in-out);
 
-      >.row {
+      > .row {
         height: 100%;
         margin: 0;
 
-        >div {
+        > div {
           height: 100%;
           padding: 0;
 
@@ -98,12 +131,21 @@
         }
       }
     }
+
   }
 }
 
 @media only screen and (max-width: 420px) {
   .card-container .card .front {
     padding: 28px 10px;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 960px) {
+
+  .card {
+    min-height: 370px !important;
+
   }
 }
 

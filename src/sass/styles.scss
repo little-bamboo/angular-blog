@@ -6,7 +6,7 @@
 @import "./material";
 // Custom.scss
 // Option A: Include all of Bootstrap
-//@import '../node_modules/bootstrap/scss/bootstrap';
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./mixins";
 // Global Styles
 @import "./colors";
@@ -233,4 +233,81 @@ p {
 .navbar > .container > span > .material-icons {
   color: $theme-default;
   vertical-align: text-bottom;
+}
+
+// NAVBAR fixed
+.fixed-top {
+  position: absolute !important;
+}
+
+// LOADING BAR Styling
+
+#loading-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+
+  .bar {
+    position: absolute;
+    background-color: lighten($theme-default, 30%);
+    z-index: 9;
+  }
+}
+
+#loading-bar-spinner {
+  position: absolute;
+  z-index: 99999;
+
+  .spinner-icon {
+    border-top-color: lighten($theme-default, 30%);
+    border-left-color: lighten($theme-default, 30%);
+  }
+}
+
+// CARD Chart Styles
+.card-header {
+  border-radius: 0px !important;
+  background: transparent !important;
+  border-bottom: 0px !important;
+}
+
+.card {
+  border: 0px !important;
+  border-radius: 0.25rem !important;
+}
+
+// Two Column Styling
+.left-col {
+  width: 85%;
+  padding: 0 10px 0 0;
+  float: left;
+}
+
+.right-col {
+  width: 15%;
+  padding: 0 10px 0 0;
+  float: right;
+}
+
+@media only screen and (max-width: 800px) {
+
+  .left-col {
+    width: 100%;
+    padding-bottom: 10px;
+    float: none;
+  }
+
+  .right-col {
+    width: 100%;
+    padding-bottom: 10px;
+    float: none;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .content-wrapper {
+    padding: 0 235px;
+  }
+
 }

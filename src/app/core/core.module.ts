@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {HttpTokenInterceptor} from './interceptors/http.token.interceptor';
+import {HttpTokenInterceptor} from './interceptors';
 
 import {
   ApiService,
@@ -9,8 +9,11 @@ import {
   AuthGuard,
   JwtService,
   TagsService,
-  UserService
+  UserService,
+  LoaderService
+
 } from './services';
+import {SlugifyPipe} from '../shared/slugify';
 
 @NgModule({
   imports: [
@@ -23,7 +26,9 @@ import {
     AuthGuard,
     JwtService,
     TagsService,
-    UserService
+    UserService,
+    LoaderService,
+    SlugifyPipe
   ],
   declarations: []
 })

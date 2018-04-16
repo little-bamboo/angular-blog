@@ -4,8 +4,14 @@ export interface Post {
   title: string;
   author: Profile;
   body: string;
-  tagList: string[];
+  intro: string;
+  introImage: string;
+  tags: string[];
   createdAt: string;
   image: string;
-  _id: string
+  meta: object[];
+  comments: object[];
+  hidden: boolean;
+  _id: string;
+  slug: string;
 }

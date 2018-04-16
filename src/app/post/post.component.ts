@@ -35,9 +35,9 @@ export class PostComponent implements OnInit {
   }
 
   getPost(): void {
-    const title = this.route.snapshot.paramMap.get('title');
+    const slug = this.route.snapshot.paramMap.get('slug');
 
-    this.postService.get(title)
+    this.postService.get(slug)
       .subscribe(data => {
         console.log('postdata: ', JSON.stringify(data));
         this.post = data;

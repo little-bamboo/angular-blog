@@ -1,26 +1,8 @@
 <div class="container">
-
-  <div class="col-lg-12">
-    <form (submit)="createPost(formData)" #formData="ngForm">
-      <div class="form-row align-items-center">
-        <div class="col-lg-auto">
-          <input type="text" name="title" id="title" placeholder="Title" class="form-control" ngModel>
-        </div>
-        <div class="col-lg-auto">
-          <input type="text" class="form-control" id="body" name="body" placeholder="Body" ngModel>
-        </div>
-        <div class="col-lg-auto">
-          <input type="text" class="form-control" id="author" name="author" placeholder="Author" ngModel>
-        </div>
-        <div class="col-lg-auto">
-          <input type="file" class="form-control-file" id="image" name="image" (change)="onFileChanged($event)"
-                 ngModel/>
-        </div>
-        <div class="col-lg-auto">
-          <button mat-raised-button class="bg-primary">Add</button>
-        </div>
-      </div>
-    </form>
+  <div class="row">
+    <div class="col-lg-12">
+      <button class="bg-slategray" (click)="newPost()">New Post</button>
+    </div>
   </div>
   <div class="row">
     <div class="mat-post-header col-md-12">
@@ -34,7 +16,7 @@
         <!-- Title Column -->
         <ng-container matColumnDef="title">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
-          <mat-cell *matCellDef="let row"><a [routerLink]="['/post', row.title ]"> {{row.title}}</a></mat-cell>
+          <mat-cell *matCellDef="let row"><a [routerLink]="['/post', row.slug ]"> {{row.title}}</a></mat-cell>
         </ng-container>
 
         <!-- Author Column -->

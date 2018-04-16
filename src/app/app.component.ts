@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from './core/services';
+import {LoaderService, UserService} from './core/services';
+import {Router, NavigationStart, NavigationEnd} from '@angular/router';
+import {Location, PopStateEvent} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,42 @@ import {UserService} from './core/services';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private userService: UserService) {
+  showLoader: boolean;
+  private lastPoppedUrl: string;
+  private yScrollStack: number[] = [];
+
+
+  constructor(private userService: UserService,
+              private loaderService: LoaderService,
+              private router: Router,
+              private location: Location) {
   }
 
   ngOnInit() {
     this.userService.populate();
+    this.loaderService.status.subscribe((val: boolean) => {
+      this.showLoader = val;
+    });
+
+
+    this.location.subscribe((ev: PopStateEvent) => {
+      this.lastPoppedUrl = ev.url;
+    });
+    this.router.events.subscribe((ev: any) => {
+      if (ev instanceof NavigationStart) {
+        if (ev.url !== this.lastPoppedUrl) {
+          this.yScrollStack.push(window.scrollY);
+        }
+      } else if (ev instanceof NavigationEnd) {
+        if (ev.url === this.lastPoppedUrl) {
+          this.lastPoppedUrl = undefined;
+          window.scrollTo(0, this.yScrollStack.pop());
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }
+    });
+
+
   }
 }

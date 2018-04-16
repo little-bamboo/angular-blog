@@ -7,7 +7,10 @@ import {MaterialModule} from '../shared/material/material.module';
 import {SharedModule} from '../shared';
 import {ChartsModule} from 'ng2-charts';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
-import {AdvancedPieComponent} from '../advanced-pie/advanced-pie.component';
+import {AdvancedPieComponent} from '../charts/advanced-pie/advanced-pie.component';
+import {AreaChartComponent} from '../charts/area-chart/area-chart.component';
+import {BarChartComponent} from '../charts/bar-chart/bar-chart.component';
+import {LineChartComponent} from '../charts/line-chart/line-chart.component';
 
 const homeRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -26,8 +29,10 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
   ],
   declarations: [
     HomeComponent,
-    AdvancedPieComponent
-
+    AdvancedPieComponent,
+    AreaChartComponent,
+    BarChartComponent,
+    LineChartComponent
   ],
   providers: []
 })

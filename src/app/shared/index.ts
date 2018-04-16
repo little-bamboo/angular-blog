@@ -6,3 +6,4 @@ export * from '../core/services';
 export * from './shared.module';
 export * from './show-authed.directive';
 export * from '../core/interceptors';
+export * from './slugify';

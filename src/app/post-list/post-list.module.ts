@@ -9,6 +9,7 @@ import {SharedModule} from '../shared';
 import {NoAuthGuard} from '../core/services';
 import {PostComponent} from '../post/post.component';
 import {PostResolver} from '../post/post-resolver.service';
+import {NewPostComponent} from '../new-post/new-post.component';
 
 const postListRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -41,8 +42,8 @@ const postListRouting: ModuleWithProviders = RouterModule.forChild([
     MaterialModule,
   ],
   declarations: [
-    PostListComponent
-  ],
+    PostListComponent,
+    NewPostComponent],
   providers: [AuthGuard]
 })
 export class PostListModule {

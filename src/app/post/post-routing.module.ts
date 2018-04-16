@@ -17,7 +17,7 @@ const routes: Routes = [
         path: '',
         component: PostListComponent
       }, {
-        path: ':title',
+        path: ':slug',
         component: PostComponent,
         resolve: {
           post: PostResolver

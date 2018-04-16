@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, ErrorHandler} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 
@@ -11,30 +11,30 @@ import {HomeModule} from './home/home.module';
 import {SharedModule, HeaderComponent, FooterComponent, UserService} from './shared';
 
 import {AuthModule} from './auth/auth.module';
-import {ApiService, JwtService, PostService} from './core/services';
+import {ApiService, JwtService, LoaderService, PostService} from './core/services';
 import {AuthGuard} from './core/services';
 import {McBreadcrumbsConfig, McBreadcrumbsModule} from 'ngx-breadcrumbs';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {EditorComponent} from './editor/editor.component';
 import {PageNotFoundModule} from './page-not-found/page-not-found.module';
 import {PostModule} from './post/post.module';
 import {AppRoutingModule} from './app-routing.module';
 import {PostListModule} from './post-list/post-list.module';
+import {EditorModule} from './editor/editor.module';
+import {NewPostModule} from './new-post/new-post.module';
 
-
-// const rootRouting: ModuleWithProviders = RouterModule.forRoot([]);
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent,
-    EditorComponent],
+    HeaderComponent
+  ],
   imports: [
     BrowserModule,
     AuthModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
     HomeModule,
@@ -42,11 +42,13 @@ import {PostListModule} from './post-list/post-list.module';
     PageNotFoundModule,
     PostModule,
     PostListModule,
+    EditorModule,
+    NewPostModule,
     McBreadcrumbsModule.forRoot(),
     NgbModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [PostService, {
+  providers: [LoaderService, PostService, {
     provide: ErrorHandler,
     useClass: GlobalErrorHandler
   }, UserService, ApiService, AuthGuard, JwtService],
