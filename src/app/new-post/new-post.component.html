@@ -1,0 +1,24 @@
+<div class="container">
+  <form [formGroup]="postForm" (ngSubmit)="createPost()" novalidate>
+    <mat-form-field>
+      <input matInput formControlName="title" placeholder="Title">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="author" placeholder="Author">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="intro" placeholder="Intro">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="body" placeholder="Body">
+    </mat-form-field>
+    <div>
+      <input formControlName="image" type="file" (change)="onFileChanged($event)">
+    </div>
+    <div>
+      <input formControlName="intoImage" type="file" (change)="onFileChanged($event)">
+    </div>
+    <button type="submit" [disabled]="postForm.pristine">Save</button>
+    <!--<button type="reset" (click)="revert()" [disabled]="postForm.pristine">Revert</button>-->
+  </form>
+</div>
