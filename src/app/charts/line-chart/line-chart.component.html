@@ -1,0 +1,22 @@
+<!-- Line Chart Starts -->
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Line Chart</h4>
+  </div>
+  <div class="card-body">
+    <div class="card-block">
+      <canvas baseChart
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+  </div>
+</div>
+
+<!-- Line Chart Ends -->

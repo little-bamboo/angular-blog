@@ -13,12 +13,14 @@ export class AdvancedPieComponent implements OnInit {
   multi: any[];
   view: any[] = [700, 400];
 
+  gradient: true;
+
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
   constructor() {
-    Object.assign(this, {single, multi});
+    (<any>Object).assign(this, {single, multi});
   }
 
   ngOnInit() {

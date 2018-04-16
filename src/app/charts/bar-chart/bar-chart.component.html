@@ -1,0 +1,25 @@
+<!-- Bar Chart Starts -->
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Bar Chart</h4>
+  </div>
+  <div class="card-body">
+    <div class="card-block">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+      </canvas>
+      <button (click)="randomize()">Update</button>
+    </div>
+  </div>
+</div>
+
+<!-- Bar Chart Ends -->
+
+
+
