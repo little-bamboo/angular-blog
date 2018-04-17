@@ -40,6 +40,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+// Material Styles
+
+mat-icon {
+  vertical-align: sub;
+}
+
 mat-card {
   max-width: 80%;
   margin: 2em auto;
@@ -314,4 +320,13 @@ p {
     padding: 0 235px;
   }
 
+}
+
+// Image Button Styling
+.hidden-button {
+  display: none;
+}
+
+label.btn{
+  min-width: 150px;
 }
