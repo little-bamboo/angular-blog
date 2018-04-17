@@ -22,6 +22,15 @@ const routes: Routes = [
         }
       }
     ]
+  },
+  {
+    path: 'new',
+    component: EditorComponent,
+    canActivate: [NoAuthGuard],
+    data: {
+      breadcrumb: true,
+      text: 'New Post'
+    }
   }
 ];
 

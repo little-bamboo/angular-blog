@@ -1,59 +1,55 @@
-<div class="editor-page">
-  <div class="container page">
-    <div class="row">
-      <div class="col-md-10 offset-md-1 col-xs-12">
+<div class="container">
+  <div class="col-sm-12">
+    <div class="card tile">
+      <div class="card-header">
+        <h4>{{title}}</h4>
+      </div>
+      <div class="card-body">
+        <div class="col-md-12">
+          <form [formGroup]="postForm" (ngSubmit)="submitForm()" novalidate>
+            <mat-form-field>
+              <input matInput formControlName="title" placeholder="Title">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput formControlName="author" placeholder="Author">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput formControlName="intro" placeholder="Intro">
+            </mat-form-field>
+            <div class="form-group col-md-6">
+              <label for="my-intro-selector" class="btn btn-primary">
+                <input type="file" id="my-intro-selector" class="hidden-button"
+                       accept="image/jpeg, .jpeg, image/png, .png, image/pjpeg, .jpg"
+                       (change)="onIntroFileChaged($event)">
+                Intro Image
+              </label>
+              <span class='label label-info' *ngIf="introFileName">{{introFileName}}</span>
+              <img class="wh50" *ngIf="introImage" [src]="introImage" alt="Preview">
 
-        <app-list-errors [errors]="errors"></app-list-errors>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="btn btn-primary" for="my-header-selector">
+                <input id="my-header-selector" type="file" class="hidden-button"
+                       accept="image/jpeg, .jpeg, image/png, .png, image/pjpeg, .jpg"
+                       (change)="onFileChanged($event)">
+                Header Image
+              </label>
+              <span class='label label-info' *ngIf="fileName">{{fileName}}</span>
+              <img class="wh50" *ngIf="image" [src]="image" alt="Preview">
 
-        <form [formGroup]="postForm">
-          <fieldset [disabled]="isSubmitting">
-
-            <fieldset class="form-group">
-              <input class="form-control form-control-lg"
-                     formControlName="title"
-                     type="text"
-                     placeholder="Post Title" />
-            </fieldset>
-
-            <fieldset class="form-group">
-              <input class="form-control"
-                     formControlName="author"
-                     type="text"
-                     placeholder="Who is the author" />
-            </fieldset>
-
-            <fieldset class="form-group">
-              <textarea class="form-control"
-                        formControlName="body"
-                        rows="8"
-                        placeholder="Write your article (in markdown)">
-              </textarea>
-            </fieldset>
-
-            <fieldset class="form-group">
-              <input class="form-control"
-                     type="text"
-                     placeholder="Enter tags"
-                     [formControl]="tagField"
-                     (keyup.enter)="addTag()" />
-
-              <div class="tag-list">
-                <span *ngFor="let tag of post.tags"
-                      class="tag-default tag-pill">
-                  <i class="ion-close-round" (click)="removeTag(tag)"></i>
-                  {{ tag }}
-                </span>
-              </div>
-            </fieldset>
-
-            <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="submitForm()">
-              Publish Blog Post
-            </button>
-
-          </fieldset>
-        </form>
-
+            </div>
+            <div class="form-group col-md-12">
+              <quill-editor formControlName="body"
+                            [style]="{'min-height': '250px', overflow: 'auto', resize: 'both'}"></quill-editor>
+            </div>
+            <div class="form-group col-md-6">
+              <button mat-raised-button class="bg-primary" type="submit">Save</button>
+              <button mat-raised-button class="bg-darkgray" type="reset" (click)="resetForm()">Reset</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
+
 </div>
