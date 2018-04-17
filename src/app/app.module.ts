@@ -21,7 +21,6 @@ import {PostModule} from './post/post.module';
 import {AppRoutingModule} from './app-routing.module';
 import {PostListModule} from './post-list/post-list.module';
 import {EditorModule} from './editor/editor.module';
-import {NewPostModule} from './new-post/new-post.module';
 
 
 @NgModule({
@@ -43,7 +42,6 @@ import {NewPostModule} from './new-post/new-post.module';
     PostModule,
     PostListModule,
     EditorModule,
-    NewPostModule,
     McBreadcrumbsModule.forRoot(),
     NgbModule.forRoot(),
     AppRoutingModule

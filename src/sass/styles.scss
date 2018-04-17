@@ -18,9 +18,9 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 // Quill Styling
-@import '~quill/dist/quill.core.css';
-@import '~quill/dist/quill.bubble.css';
-@import '~quill/dist/quill.snow.css';
+@import "../../node_modules/quill/dist/quill.core.css";
+@import "../../node_modules/quill/dist/quill.bubble.css";
+@import "../../node_modules/quill/dist/quill.snow.css";
 
 // specify theme class eg: <body class="my-theme"> ... </body>
 .my-theme {
@@ -327,6 +327,6 @@ p {
   display: none;
 }
 
-label.btn{
+label.bg-primary {
   min-width: 150px;
 }

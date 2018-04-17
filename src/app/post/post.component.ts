@@ -12,6 +12,8 @@ import {SafeHtml} from '@angular/platform-browser';
 export class PostComponent implements OnInit {
 
   post: Post;
+
+  // Use safeHtml pipe to modify html string to include iframe
   html: SafeHtml;
 
   constructor(

@@ -31,12 +31,6 @@
           <mat-cell *matCellDef="let row"> {{row.createdAt| date:'medium' }}</mat-cell>
         </ng-container>
 
-        <!-- Body Column -->
-        <ng-container matColumnDef="body">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Body</mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.body}}</mat-cell>
-        </ng-container>
-
         <!-- Image Column -->
         <ng-container matColumnDef="image">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>

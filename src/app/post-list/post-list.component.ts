@@ -19,7 +19,7 @@ export class PostListComponent implements AfterViewInit {
   postUrl = `${environment.api_url}`;
 
   // Material columns
-  displayedColumns = ['title', 'author', 'createdAt', 'body', 'image', 'buttons'];
+  displayedColumns = ['title', 'author', 'createdAt', 'image', 'buttons'];
   dataSource = new MatTableDataSource(this.postsList);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -48,7 +48,7 @@ export class PostListComponent implements AfterViewInit {
   }
 
   newPost() {
-    this.router.navigateByUrl('/new-post');
+    this.router.navigateByUrl('/new');
   }
 
 
