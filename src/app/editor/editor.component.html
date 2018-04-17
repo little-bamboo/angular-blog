@@ -16,8 +16,11 @@
             <mat-form-field>
               <input matInput formControlName="intro" placeholder="Intro">
             </mat-form-field>
+            <mat-form-field>
+              <input matInput formControlName="tags" placeholder="Tags">
+            </mat-form-field>
             <div class="form-group col-md-6">
-              <label for="my-intro-selector" class="btn btn-primary">
+              <label for="my-intro-selector" class="bg-primary mat-raised-button">
                 <input type="file" id="my-intro-selector" class="hidden-button"
                        accept="image/jpeg, .jpeg, image/png, .png, image/pjpeg, .jpg"
                        (change)="onIntroFileChaged($event)">
@@ -28,7 +31,7 @@
 
             </div>
             <div class="form-group col-md-6">
-              <label class="btn btn-primary" for="my-header-selector">
+              <label class="bg-primary mat-raised-button" for="my-header-selector">
                 <input id="my-header-selector" type="file" class="hidden-button"
                        accept="image/jpeg, .jpeg, image/png, .png, image/pjpeg, .jpg"
                        (change)="onFileChanged($event)">

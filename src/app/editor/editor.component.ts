@@ -202,7 +202,7 @@ export class EditorComponent implements OnInit {
   resetForm() {
     this.postForm.reset();
 
-    // Reset image and span labels
+    // Reset image and span labels as they are not apart of the form controls
     this.introImage = '';
     this.image = '';
     this.introFileName = '';
