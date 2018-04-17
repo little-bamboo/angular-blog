@@ -40,9 +40,10 @@ export class PostService {
   // Create the post-list object
   save(post): Observable<any> {
 
-    if (post.slug) {
+    const slug = post.get('slug');
+    if (slug) {
 
-      return this.http.put(`${this.postUrl}/` + post.slug, post);
+      return this.http.put(`${this.postUrl}/` + slug, post);
 
     } else {
       // return an observable of http post-list request
