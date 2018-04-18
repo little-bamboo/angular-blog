@@ -52,7 +52,7 @@ export class AuthComponent implements OnInit {
 
     this.userService.attemptAuth(this.authType, credentials)
       .subscribe(
-        data => this.router.navigateByUrl('/post-list'),
+        data => this.router.navigateByUrl('/posts'),
         err => {
           this.errors = err;
           this.isSubmitting = false;

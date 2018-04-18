@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   getPosts() {
     this.postService.getPosts()
       .subscribe(data => {
-        console.log(data);
+        console.log('posts: ', JSON.stringify(data));
         this.postsList = data;
       });
 

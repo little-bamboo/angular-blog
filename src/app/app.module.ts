@@ -21,6 +21,7 @@ import {PostModule} from './post/post.module';
 import {AppRoutingModule} from './app-routing.module';
 import {PostListModule} from './post-list/post-list.module';
 import {EditorModule} from './editor/editor.module';
+import {NgxLocalStorageModule} from 'ngx-localstorage';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import {EditorModule} from './editor/editor.module';
     EditorModule,
     McBreadcrumbsModule.forRoot(),
     NgbModule.forRoot(),
+    NgxLocalStorageModule.forRoot(),
     AppRoutingModule
   ],
   providers: [LoaderService, PostService, {

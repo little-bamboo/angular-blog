@@ -20,14 +20,9 @@
             <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/register" (click)="isNavbarCollapsed = !isNavbarCollapsed">Register</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" routerLink="/login" (click)="isNavbarCollapsed = !isNavbarCollapsed">Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/posts" (click)="isNavbarCollapsed = !isNavbarCollapsed">Posts</a>
-        </li>
+
       </ul>
 
       <! -- Show this for logged in users -->
@@ -35,7 +30,9 @@
         <li class="nav-item active">
           <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/posts" (click)="isNavbarCollapsed = !isNavbarCollapsed">Posts</a>
+        </li>
         <li class="nav-item logout">
           <a class="nav-link" (click)="logout()">Logout</a>
         </li>

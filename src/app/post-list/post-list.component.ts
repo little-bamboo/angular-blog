@@ -1,9 +1,8 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {PostService} from '../core/services/index';
-import {Post} from '../core/models/index';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {PostService} from '../core/';
+import {Post} from '../core/';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {environment} from '../../environments/environment';
-import {SlugifyPipe} from '../shared/slugify';
 import {Router} from '@angular/router';
 
 @Component({

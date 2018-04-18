@@ -23,7 +23,7 @@ export class EditablePostResolver implements Resolve<Post> {
       .pipe(
         map(
           post => {
-            if (this.userService.getCurrentUser()) {
+            if (this.userService.isAuthenticated) {
               return post;
             } else {
               this.router.navigateByUrl('/');

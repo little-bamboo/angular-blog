@@ -12,7 +12,7 @@ const routes: Routes = [
       breadcrumbs: true,
       text: 'Edit'
     },
-    canActivate: [NoAuthGuard],
+    canActivate: [AuthGuard],
     children: [
       {
         path: ':slug',
@@ -26,7 +26,7 @@ const routes: Routes = [
   {
     path: 'new',
     component: EditorComponent,
-    canActivate: [NoAuthGuard],
+    canActivate: [AuthGuard],
     data: {
       breadcrumb: true,
       text: 'New Post'
