@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: 'post',
     data: {
-      breadcrumbs: true,
+      breadcrumbs: false,
       text: 'Post'
     },
     children: [
@@ -17,6 +17,10 @@ const routes: Routes = [
         component: PostComponent,
         resolve: {
           post: PostResolver
+        },
+        data: {
+          breadcrumbs: true,
+          text: '{{post.title}}'
         }
       }
     ]

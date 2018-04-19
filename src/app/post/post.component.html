@@ -1,14 +1,25 @@
-<div *ngIf="post" class="post-page">
-  <div class="banner">
-    <div class="container">
-      {{ post.title }}
-    </div>
-  </div>
-  <div class="container page">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="ql-editor" [innerHTML]="html | safeHtml"></div>
+<div class="container">
+  <div *ngIf="post" class="card">
+    <div class="card-header">
+      <div class="pr-20 pl-20">
+        <div class="inline-block" *ngFor="let tag of post.tags">
+          <span class="badge badge-pill badge-primary">{{tag}}</span>
+        </div>
+        <hr>
+        <h1 class="card-title text-lg-center">{{post.title}}</h1>
+        <hr>
+      </div>
+      <div class="card-body">
+        <div class="card-block">
+          <img class="feature_image" src="{{postUrl}}/uploads/images/{{post.image}}" alt="post-image">
+          <hr>
+          <span>{{post.author}} // {{post.createdAt | date: 'yyyy-MM-dd'}}</span>
+          <hr>
+          <div class="ql-editor" [innerHTML]="html | safeHtml"></div>
+
+        </div>
       </div>
     </div>
   </div>
 </div>
+

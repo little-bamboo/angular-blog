@@ -11,7 +11,6 @@ export class JwtService {
 
   getToken(): String {
     // return window.localStorage['mean-token'];
-    console.log('token count: ', this.storageService.count());
     return this.storageService.get('mean-token');
   }
 

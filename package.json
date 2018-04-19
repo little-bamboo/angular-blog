@@ -44,7 +44,7 @@
   "devDependencies": {
     "@angular/cli": "~1.7.2",
     "@angular/compiler-cli": "^5.2.0",
-    "@angular/language-service": "^5.2.0",
+    "@angular/language-service": "^5.2.10",
     "@types/chart.js": "^2.7.11",
     "@types/d3": "^5.0.0",
     "@types/jasmine": "~2.8.3",

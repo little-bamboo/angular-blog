@@ -5,7 +5,7 @@ import {SharedModule} from '../shared';
 import {PostRoutingModule} from './post-routing.module';
 import {MarkdownPipe} from './markdown.pipe';
 import {PostResolver} from './post-resolver.service';
-import { SafeHtmlPipe } from './safe-html.pipe';
+import {SafeHtmlPipe} from '../shared/safe-html.pipe';
 
 @NgModule({
   imports: [SharedModule,

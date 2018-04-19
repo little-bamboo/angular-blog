@@ -63,7 +63,6 @@ export class PostListComponent implements AfterViewInit {
   }
 
   editPost(post) {
-    console.log('editing post-list: ' + JSON.stringify(post));
     this.router.navigateByUrl('/edit/' + post.slug);
   }
 

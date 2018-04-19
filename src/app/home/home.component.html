@@ -11,42 +11,57 @@
 <!-- Overlap Image Cards -->
 
 <div class="container">
+  <div class="row tile bg-secondary mb-40 pl-20 pt-5">
+    <div>
+      <h5>Featured</h5>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-12 card-container pt-60 pr-10 pl-10">
+    <div *ngFor="let post of postsList | slice:0:1"
+         class="col-lg-4 col-md-4 col-sm-12 card-container pr-10 pl-10">
       <div class="card card-banner card-inverse bg-greensea text-center">
         <div class="card-body">
           <div class="card-img overlap">
-            <img src="../../assets/images/elements/14.png" alt="element 06" width="170" class="card-shadow">
+            <img src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="post-image" width="170" class="card-shadow">
           </div>
-          <div class="card-block pt-15">
-            <h4 class="card-title">Angular 6 is here!</h4>
-            <p class="card-text">Automate and deploy front-end projects even faster.</p>
+          <div class="card-block pt-20">
+            <h3 class="card-title"><a [routerLink]="['/post', post.slug ]"> {{post.title}}</a></h3>
+            <p class="card-text">{{post.intro}}</p>
+            <button mat-raised-button [routerLink]="['/post', post.slug ]"
+                    class="btn bg-primary float-right btn-home-header">Read More
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-12 card-container pt-60 pr-10 pl-10">
+    <div *ngFor="let post of postsList | slice:1:2"
+         class="col-lg-4 col-md-4 col-sm-12 card-container pr-10 pl-10">
       <div class="card card-banner card-inverse bg-orange text-center">
         <div class="card-body">
           <div class="card-img overlap">
-            <img src="../../assets/images/elements/14.png" alt="element 03" width="170" class="card-shadow">
+            <img src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="element 03" width="170" class="card-shadow">
           </div>
-          <div class="card-block pt-15">
-            <h4 class="card-title">Streaming Analytics</h4>
-            <p class="card-text">Featuring the classification of streaming data.</p>
+          <div class="card-block pt-20">
+            <h3 class="card-title"><a [routerLink]="['/post', post.slug ]"> {{post.title}}</a></h3>
+            <p class="card-text">{{post.intro}}</p>
+            <button [routerLink]="['/post', post.slug ]" class="btn bg-primary float-right btn-home-header">Read More
+            </button>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-12 card-container pt-60 pr-10 pl-10">
+    <div *ngFor="let post of postsList | slice:2:3"
+         class="col-lg-4 col-md-4 col-sm-12 card-container pr-10 pl-10">
       <div class="card card-banner card-inverse bg-blue text-center">
         <div class="card-body">
           <div class="card-img overlap">
-            <img src="../../assets/images/elements/14.png" alt="element 07" width="170" class="card-shadow">
+            <img src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="element 07" width="170" class="card-shadow">
           </div>
-          <div class="card-block pt-15">
-            <h4 class="card-title">Visual Analytics</h4>
-            <p class="card-text">Discover the hidden meanings in data.</p>
+          <div class="card-block pt-20">
+            <h3 class="card-title"><a [routerLink]="['/post', post.slug ]"> {{post.title}}</a></h3>
+            <p class="card-text">{{post.intro}}</p>
+            <button [routerLink]="['/post', post.slug ]" class="btn bg-primary float-right btn-home-header">Read More
+            </button>
           </div>
         </div>
       </div>
@@ -55,118 +70,98 @@
 </div>
 
 <!-- Overlap Image Card Ends -->
-<div class="container">
-  <div class="row">
-
-    <!-- Left column -->
-
-    <div class="left-col">
-      <!-- Masonry style columns -->
-      <div class="card-columns">
-
-        <!-- Card Tiles -->
-        <div class="card tile" *ngFor="let post of postsList">
-          <div class="card-body">
-            <img class="card-img-top img-fluid" src="{{postUrl}}/uploads/images/{{post.image}}" alt="Card image cap">
-            <div class="card-block">
-              <h4 class="card-title">{{post.title}}</h4>
-              <p class="card-text">{{post.intro}}</p>
-              <a class="btn btn-outline-warning" [routerLink]="['/post', post.slug ]">Read More</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card Tiles End -->
-        <!-- Masonry style columns end -->
-      </div>
-    </div>
-
-    <!-- Left Column End -->
-
-    <!-- Right Column -->
-
-    <div class="right-col">
-
-      <!-- Vertical Nav -->
-
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-
-      <!-- Vertical Nav End -->
-
-      <div class="tile">
-        <div class="tile-widget bg-primary text-center p-30">
-          <i class="fa fa-shopping-cart fa-3x"></i>
-        </div>
-        <div class="tile-body text-center">
-          <h1 class="m-0">369</h1>
-          <span class="text-muted">Users</span>
-        </div>
-      </div>
-
-      <div class="card-container">
-        <div class="card">
-          <div class="front bg-primary"><!-- row -->
-            <div class="row"><!-- col -->
-              <div class="col-xs-4"><i class="fa fa-users fa-4x"></i></div><!-- /col --><!-- col -->
-              <div class="col-xs-8"><p class="text-xl line-xl text-strong mb-0">3 659</p><span>Blog Posts</span></div>
-              <!-- /col -->
-            </div><!-- /row -->
-          </div>
-          <div class="back bg-primary"><!-- row -->
-            <div class="row"><!-- col -->
-              <div class="col-xs-4"><a href="javascript:;"><i class="fa fa-cog fa-2x"></i> Settings</a></div>
-              <!-- /col -->
-              <!-- col -->
-              <div class="col-xs-4"><a href="javascript:;"><i class="fa fa-chain-broken fa-2x"></i> Content</a></div>
-              <!-- /col --><!-- col -->
-              <div class="col-xs-4"><a href="javascript:;"><i class="fa fa-ellipsis-h fa-2x"></i> More</a></div>
-              <!-- /col -->
-            </div><!-- /row -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right Column Ends -->
-
+<div class="container clearfix">
+  <div class="row tile bg-primary mb-10 mt-10 pl-20 pt-5">
+    <h5>Latest</h5>
   </div>
+  <!-- Left column -->
+  <div class="left-col">
+    <!-- Masonry style columns -->
+    <div class="card-columns">
+
+      <!-- Card Tiles -->
+      <div class="card tile" *ngFor="let post of postsList | slice:3:20">
+        <div class="card-body">
+          <img class="card-img-top img-fluid" src="{{postUrl}}/uploads/images/{{post.image}}" alt="post-image">
+          <div class="card-block">
+            <h4 class="card-title">{{post.title}}</h4>
+            <p class="card-text">{{post.intro}}</p>
+            <a class="btn btn-outline-warning" [routerLink]="['/post', post.slug ]">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Tiles End -->
+      <!-- Masonry style columns end -->
+    </div>
+  </div>
+
+  <!-- Left Column End -->
+
+  <!-- Right Column -->
+
+  <div class="right-col">
+
+    <!-- Vertical Nav -->
+
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+
+    <!-- Vertical Nav End -->
+
+    <div class="tile">
+      <div class="tile-widget bg-primary text-center p-30">
+        <i class="fa fa-users fa-3x"></i>
+      </div>
+      <div class="tile-body text-center">
+        <h3 class="m-0">369</h3>
+        <span class="text-muted">Visitors</span>
+      </div>
+    </div>
+
+    <div class="tile">
+      <div class="tile-widget bg-primary text-center p-30">
+        <i class="fa fa-book fa-3x"></i>
+      </div>
+      <div class="tile-body text-center">
+        <h3 class="m-0">3,659</h3>
+        <span>Blog Posts</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column Ends -->
+
 </div>
-
 <!-- Chart List -->
-<div class="container pt-15">
-  <div class="row tile">
-    <div class="col-md-12">
-      <app-bar-chart></app-bar-chart>
-    </div>
+<div class="container">
+  <div class="row tile bg-primary mb-10 mt-10 pl-20 pt-5">
+    <h5>Charts</h5>
   </div>
-  <div class="row tile">
-    <div class="col-md-12">
-      <app-line-chart></app-line-chart>
-    </div>
+  <div class="tile">
+    <app-bar-chart></app-bar-chart>
   </div>
-  <div class="row tile">
-    <div class="col-md-12">
-      <app-advanced-pie></app-advanced-pie>
-    </div>
+  <div class="tile">
+    <app-line-chart></app-line-chart>
+  </div>
+  <div class="tile">
+    <app-advanced-pie></app-advanced-pie>
   </div>
   <!-- Area Chart Starts -->
-  <div class="row tile">
-    <div class="col-md-12">
-      <app-area-chart></app-area-chart>
-    </div>
+  <div class="tile">
+    <app-area-chart></app-area-chart>
   </div>
   <!-- Area Chart Ends -->
 </div>

@@ -30,7 +30,7 @@ export class GlobalErrorHandler extends ErrorHandler {
       // Construct error message based on return value from the server
 
 
-      this.snacker.open(err_msg, 'Close', {duration: 2000, extraClasses: ['background-red']});
+      this.snacker.open(err_msg, 'Close', {duration: 5000, extraClasses: ['background-red']});
 
       super.handleError(error);
 

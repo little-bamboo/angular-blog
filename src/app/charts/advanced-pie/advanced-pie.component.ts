@@ -11,7 +11,7 @@ export class AdvancedPieComponent implements OnInit {
 
   single: any[];
   multi: any[];
-  view: any[] = [700, 400];
+  view: any[] = [700, 200];
 
   gradient: true;
 

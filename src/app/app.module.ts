@@ -22,6 +22,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {PostListModule} from './post-list/post-list.module';
 import {EditorModule} from './editor/editor.module';
 import {NgxLocalStorageModule} from 'ngx-localstorage';
+import {HttpTokenInterceptor} from './core/interceptors';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import {NgxLocalStorageModule} from 'ngx-localstorage';
   providers: [LoaderService, PostService, {
     provide: ErrorHandler,
     useClass: GlobalErrorHandler
-  }, UserService, ApiService, AuthGuard, JwtService],
+  }, UserService, ApiService, AuthGuard, JwtService, {
+    provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

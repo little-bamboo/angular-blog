@@ -10,7 +10,7 @@ $break-large: 1200px;
   position: relative;
 
   .card-banner {
-    min-height: 325px;
+    min-height: 230px;
   }
 
   .card {
@@ -39,11 +39,11 @@ $break-large: 1200px;
         padding: 24px;
       }
       &.overlap {
-        margin-top: -70px;
+        margin-top: -35px;
       }
 
       .card-shadow {
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+        //box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
         border-radius: 6px;
       }
     }
@@ -141,11 +141,26 @@ $break-large: 1200px;
   }
 }
 
-@media only screen and (min-width: 800px) and (max-width: 960px) {
+@media only screen and (min-width: 990px) and (max-width: 1200px) {
 
   .card {
-    min-height: 370px !important;
+    min-height: 270px !important;
 
+  }
+}
+
+@media only screen and (min-width: 761px) and (max-width: 989px) {
+
+  .card {
+    min-height: 300px !important;
+
+  }
+}
+
+@media only screen and (max-width: 760px){
+
+  .card{
+    min-height: 150px;
   }
 }
 

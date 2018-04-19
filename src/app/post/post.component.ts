@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Post} from '../core/models';
 import {PostService} from '../core/services';
 import {SafeHtml} from '@angular/platform-browser';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-post',
@@ -12,6 +13,7 @@ import {SafeHtml} from '@angular/platform-browser';
 export class PostComponent implements OnInit {
 
   post: Post;
+  postUrl = `${environment.api_url}`;
 
   // Use safeHtml pipe to modify html string to include iframe
   html: SafeHtml;

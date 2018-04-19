@@ -76,6 +76,7 @@ mat-card {
 
   // Pull up the banner over the hidden breadcrumbs
   margin-top: -25px;
+  margin-bottom: 25px;
   text-align: center;
   display: block;
   overflow: auto;
@@ -85,6 +86,12 @@ mat-card {
 
 .banner > .container > div > .material-icons {
   vertical-align: middle;
+}
+
+.card-block > button.btn-home-header {
+  position: absolute;
+  bottom: -15px;
+  margin-left: 10px;
 }
 
 // Sample material icon
@@ -121,8 +128,7 @@ mat-card {
 
 /* TILE Styling */
 .tile {
-  margin-bottom: 30px;
-  margin-left: 10px;
+  margin: 10px 10px;
   background-color: #fff;
   border-radius: 6px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, .05);
@@ -226,7 +232,6 @@ p {
 }
 
 .mat-cell img {
-  max-width: 70px;
   max-height: 70px;
 }
 
@@ -288,6 +293,10 @@ p {
   border-radius: 0.25rem !important;
 }
 
+app-home > .container > .row > .card-container > .card > .card-body > .card-block > .card-title > a {
+  color: white !important;
+}
+
 // Two Column Styling
 .left-col {
   width: 85%;
@@ -301,7 +310,7 @@ p {
   float: right;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 768px) {
 
   .left-col {
     width: 100%;
@@ -314,11 +323,11 @@ p {
     padding-bottom: 10px;
     float: none;
   }
-}
 
-@media only screen and (min-width: 1300px) {
-  .content-wrapper {
-    padding: 0 235px;
+  .card-block > button.btn-home-header {
+    position: absolute;
+    bottom: 10px;
+    margin-left: 40px;
   }
 
 }
@@ -330,4 +339,13 @@ p {
 
 label.bg-primary {
   min-width: 150px;
+}
+
+// Post Styling
+.feature_image {
+
+  max-height: 320px;
+  max-width: 100%;
+  margin: auto;
+  display: block;
 }

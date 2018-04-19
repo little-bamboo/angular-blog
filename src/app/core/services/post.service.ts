@@ -82,11 +82,4 @@ export class PostService {
       });
   }
 
-  // Default error handling method
-  // private handleError(error: any): Promise<any> {
-  //   console.error('An error occured', error.error.error.message); // for dev purposes only
-  //   throw new Error(error.error.error.message);
-  //   // return Promise.reject(error.message || error);
-  // }
-
 }
