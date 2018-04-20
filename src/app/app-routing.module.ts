@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {PostListComponent} from './post-list/post-list.component';
 import {PostComponent} from './post/post.component';
-import {EditorComponent} from './editor/editor.component';
+import {AdminComponent} from './admin/admin.component';
 
 const routes: Routes = [
   {
@@ -13,6 +13,9 @@ const routes: Routes = [
   },
   {
     path: 'posts/:title', component: PostComponent
+  },
+  {
+    path: 'admin', component: AdminComponent
   },
   {
     path: '**', redirectTo: '/notfound'

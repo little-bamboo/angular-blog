@@ -1,14 +1,12 @@
 <div class="container">
   <div *ngIf="post" class="card">
     <div class="card-header">
-      <div class="pr-20 pl-20">
-        <div class="inline-block" *ngFor="let tag of post.tags">
-          <span class="badge badge-pill badge-primary">{{tag}}</span>
-        </div>
-        <hr>
-        <h1 class="card-title text-lg-center">{{post.title}}</h1>
-        <hr>
-      </div>
+      <ul class="tag-list" >
+        <li *ngFor="let tag of post.tags" class="badge badge-pill badge-primary">{{tag}}</li>
+      </ul>
+      <hr>
+      <h1 class="card-title text-lg-center">{{post.title}}</h1>
+      <hr>
       <div class="card-body">
         <div class="card-block">
           <img class="feature_image" src="{{postUrl}}/uploads/images/{{post.image}}" alt="post-image">

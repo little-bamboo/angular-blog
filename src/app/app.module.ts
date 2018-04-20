@@ -24,6 +24,7 @@ import {EditorModule} from './editor/editor.module';
 import {NgxLocalStorageModule} from 'ngx-localstorage';
 import {HttpTokenInterceptor} from './core/interceptors';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
     AppComponent,
     FooterComponent,
     HeaderComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
