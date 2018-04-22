@@ -3,34 +3,24 @@ import {RouterModule} from '@angular/router';
 
 import {PostListComponent} from './post-list.component';
 import {MaterialModule} from '../shared/material/material.module';
-import {AuthGuard} from '../core/services';
 
 import {SharedModule} from '../shared';
-import {PostComponent} from '../post/post.component';
-import {PostResolver} from '../post/post-resolver.service';
+import {PostListResolver} from './post-list-resolver.service';
 
 const postListRouting: ModuleWithProviders = RouterModule.forChild([
   {
-    path: 'posts',
+    path: 'posts/:tag',
     component: PostListComponent,
-    canActivate: [AuthGuard],
+    runGuardsAndResolvers: 'always',
+    resolve: {
+      postsData: PostListResolver
+    },
     data: {
       breadcrumbs: true,
-      text: 'Posts'
-    },
-    children: [
-      {
-        path: ':slug',
-        component: PostComponent,
-        resolve: {
-          post: PostResolver
-        },
-        data: {
-          breadcrumbs: '{{post.title}}'
-        }
-      }
-    ]
+      text: '{{postsData.tag}}'
+    }
   }
+
 ]);
 
 @NgModule({
@@ -41,7 +31,7 @@ const postListRouting: ModuleWithProviders = RouterModule.forChild([
   ],
   declarations: [
     PostListComponent],
-  providers: [AuthGuard]
+  providers: [PostListResolver]
 })
 export class PostListModule {
 }
