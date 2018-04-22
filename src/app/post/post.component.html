@@ -1,21 +1,21 @@
 <div class="container">
   <div *ngIf="post" class="card">
-    <div class="card-header">
-      <ul class="tag-list" >
-        <li *ngFor="let tag of post.tags" class="badge badge-pill badge-primary">{{tag}}</li>
+    <div class="card-header bg-primary">
+      <ul class="tag-list">
+        <li *ngFor="let tag of post.tags" class="badge badge-pill badge-secondary"><a [routerLink]="['/posts', tag]">{{tag}}</a>
+        </li>
       </ul>
-      <hr>
-      <h1 class="card-title text-lg-center">{{post.title}}</h1>
-      <hr>
-      <div class="card-body">
-        <div class="card-block">
-          <img class="feature_image" src="{{postUrl}}/uploads/images/{{post.image}}" alt="post-image">
-          <hr>
-          <span>{{post.author}} // {{post.createdAt | date: 'yyyy-MM-dd'}}</span>
-          <hr>
-          <div class="ql-editor" [innerHTML]="html | safeHtml"></div>
+      <h1 class="card-title text-lg-center font-weight-bold">{{post.title}}</h1>
+      <img class="feature_image" src="{{postUrl}}/uploads/images/{{post.image}}" alt="post-image">
+      <ul>
+        <li class="inline-block pr-10">{{post.author}}</li>
+        <li class="inline-block pr-10">{{post.createdAt | date: 'yyyy-MM-dd'}}</li>
+      </ul>
+    </div>
 
-        </div>
+    <div class="card-body">
+      <div class="card-block">
+        <div class="ql-editor" [innerHTML]="html | safeHtml"></div>
       </div>
     </div>
   </div>

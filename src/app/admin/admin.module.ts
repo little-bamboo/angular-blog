@@ -9,33 +9,9 @@ import {SharedModule} from '../shared';
 import {PostComponent} from '../post/post.component';
 import {PostResolver} from '../post/post-resolver.service';
 
-const adminRouting: ModuleWithProviders = RouterModule.forChild([
-  {
-    path: 'admin',
-    component: AdminComponent,
-    canActivate: [AuthGuard],
-    data: {
-      breadcrumbs: true,
-      text: 'Admin'
-    },
-    children: [
-      {
-        path: ':slug',
-        component: PostComponent,
-        resolve: {
-          post: PostResolver
-        },
-        data: {
-          breadcrumbs: '{{post.title}}'
-        }
-      }
-    ]
-  }
-]);
 
 @NgModule({
   imports: [
-    adminRouting,
     SharedModule,
     MaterialModule,
   ],

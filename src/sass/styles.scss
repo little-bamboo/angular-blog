@@ -346,8 +346,18 @@ label.bg-primary {
 
   max-height: 320px;
   max-width: 100%;
-  margin: auto;
+  margin: 15px auto;
   display: block;
+}
+
+.container > .card > .card-header {
+  border-top-right-radius: 4px !important;
+  border-top-left-radius: 4px !important;
+  border-bottom: 5px !important;
+  background-color: #428bca !important;
+  color: white !important;
+  padding: 1.25em;
+
 }
 
 // TAG Styling

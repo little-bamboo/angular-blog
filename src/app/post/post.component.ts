@@ -21,7 +21,6 @@ export class PostComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
-    private router: Router,
   ) {
 
   }
@@ -36,7 +35,7 @@ export class PostComponent implements OnInit {
 
     this.postService.get(slug)
       .subscribe(data => {
-        // console.log('postdata: ', JSON.stringify(data));
+        console.log('postdata: ', JSON.stringify(data));
         this.post = data;
         this.html = data.body;
       });

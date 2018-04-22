@@ -9,17 +9,20 @@ const routes: Routes = [
     path: '', redirectTo: '/home', pathMatch: 'full'
   },
   {
-    path: 'posts', component: PostListComponent
-  },
-  {
-    path: 'posts/:title', component: PostComponent
-  },
-  {
     path: 'admin', component: AdminComponent
-  },
-  {
-    path: '**', redirectTo: '/notfound'
   }
+  // {
+  //   path: 'posts', component: PostListComponent
+  // },
+  // {
+  //   path: 'posts/:tag', component: PostListComponent
+  // },
+  // {
+  //   path: 'admin', component: AdminComponent
+  // },
+  // {
+  //   path: '**', redirectTo: '/notfound'
+  // }
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Post} from '../models/index';
+import {Post, PostListConfig} from '../models/index';
 import {Observable} from 'rxjs/Observable';
-import {Response} from '@angular/http';
+
 import {HttpClient, HttpParams} from '@angular/common/http';
 
 // Import the rxjs operator for mapping observable type
@@ -11,7 +11,7 @@ import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators/map';
 
 import {ApiService} from './api.service';
-import {PostListConfig} from '../models/post-list-config.model';
+
 
 @Injectable()
 export class PostService {
@@ -24,7 +24,7 @@ export class PostService {
   ) {
   }
 
-  query(config: PostListConfig): Observable<{ posts: Post[], postsCount: number }> {
+  query(config: PostListConfig): Observable<Post[]> {
     // Convert filters to URLSearchParams
     const params = {};
 
@@ -33,6 +33,7 @@ export class PostService {
         params[key] = config.filters[key];
       });
 
+    console.log(params);
     return this.apiService.get('/api/posts' + ((config.type === 'feed') ? '/feed' : ''),
       new HttpParams({fromObject: params}));
   }

@@ -161,7 +161,7 @@ export class EditorComponent implements OnInit {
     // Iterate through files array and pull into fordata object
     for (const file in this.introFiles) {
       if (this.files.hasOwnProperty(file)) {
-        formData.append('introImage', this.files[file], this.files[file].name);
+        formData.append('introImage', this.introFiles[file], this.introFiles[file].name);
       }
     }
 
