@@ -23,14 +23,8 @@ export class PostListComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private postService: PostService,
   ) {
   }
-
-  tagsListconfig: PostListConfig = {
-    type: 'all',
-    filters: {}
-  };
 
   ngOnInit() {
     console.log(this.route.snapshot.data);

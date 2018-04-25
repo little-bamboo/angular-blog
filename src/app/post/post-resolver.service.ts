@@ -21,7 +21,6 @@ export class PostResolver implements Resolve<Post> {
     state: RouterStateSnapshot
   ): Observable<any> {
 
-    console.log(route.params);
     return this.postService.get(route.params['slug'])
       .pipe(catchError((err) => this.router.navigateByUrl('/')));
   }

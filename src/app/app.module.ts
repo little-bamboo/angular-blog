@@ -11,7 +11,7 @@ import {HomeModule} from './home/home.module';
 import {SharedModule, HeaderComponent, FooterComponent, UserService} from './shared';
 
 import {AuthModule} from './auth/auth.module';
-import {ApiService, JwtService, LoaderService, PostService} from './core/services';
+import {ApiService, JwtService, LoaderService, PostService, TagsService} from './core/services';
 import {AuthGuard} from './core/services';
 import {McBreadcrumbsConfig, McBreadcrumbsModule} from 'ngx-breadcrumbs';
 
@@ -24,15 +24,15 @@ import {EditorModule} from './editor/editor.module';
 import {NgxLocalStorageModule} from 'ngx-localstorage';
 import {HttpTokenInterceptor} from './core/interceptors';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import { AdminComponent } from './admin/admin.component';
+import {AdminModule} from './admin/admin.module';
+import {TagMenuComponent} from './shared/layout';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent,
-    AdminComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -47,12 +47,13 @@ import { AdminComponent } from './admin/admin.component';
     PostModule,
     PostListModule,
     EditorModule,
+    AdminModule,
     McBreadcrumbsModule.forRoot(),
     NgbModule.forRoot(),
     NgxLocalStorageModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [LoaderService, PostService, {
+  providers: [LoaderService, TagsService, PostService, {
     provide: ErrorHandler,
     useClass: GlobalErrorHandler
   }, UserService, ApiService, AuthGuard, JwtService, {

@@ -38,6 +38,7 @@ body {
   font-family: Raleway, Arial, sans-serif !important;
   padding: 80px 0 0 0;
   -webkit-font-smoothing: antialiased;
+  min-height: 100%;
 }
 
 // Material Styles
@@ -299,13 +300,13 @@ app-home > .container > .row > .card-container > .card > .card-body > .card-bloc
 
 // Two Column Styling
 .left-col {
-  width: 85%;
+  width: 80%;
   padding: 0 10px 0 0;
   float: left;
 }
 
 .right-col {
-  width: 15%;
+  width: 20%;
   padding: 0 10px 0 0;
   float: right;
 }
@@ -365,4 +366,10 @@ label.bg-primary {
   padding: 10px;
   margin: 2px;
   font-size: initial;
+}
+
+.right-col > app-tag-menu > .nav-pills > .nav-item > .nav-link{
+  color: white;
+  font-weight: bold;
+  margin: 1px;
 }

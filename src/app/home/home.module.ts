@@ -11,6 +11,7 @@ import {AdvancedPieComponent} from '../charts/advanced-pie/advanced-pie.componen
 import {AreaChartComponent} from '../charts/area-chart/area-chart.component';
 import {BarChartComponent} from '../charts/bar-chart/bar-chart.component';
 import {LineChartComponent} from '../charts/line-chart/line-chart.component';
+import {TagMenuComponent} from '../shared/layout';
 
 const homeRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -32,7 +33,8 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
     AdvancedPieComponent,
     AreaChartComponent,
     BarChartComponent,
-    LineChartComponent
+    LineChartComponent,
+    TagMenuComponent
   ],
   providers: []
 })

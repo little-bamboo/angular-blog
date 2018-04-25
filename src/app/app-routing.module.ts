@@ -8,9 +8,6 @@ const routes: Routes = [
   {
     path: '', redirectTo: '/home', pathMatch: 'full'
   },
-  {
-    path: 'admin', component: AdminComponent
-  }
   // {
   //   path: 'posts', component: PostListComponent
   // },
