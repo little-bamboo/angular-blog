@@ -11,11 +11,6 @@
 <!-- Overlap Image Cards -->
 
 <div class="container">
-  <div class="row tile bg-secondary mb-40 pl-20 pt-5">
-    <div>
-      <h5>Featured</h5>
-    </div>
-  </div>
   <div class="row">
     <div *ngFor="let post of postsList | slice:0:1"
          class="col-lg-4 col-md-4 col-sm-12 card-container pr-10 pl-10">
@@ -25,11 +20,8 @@
             <img src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="post-image" width="170" class="card-shadow">
           </div>
           <div class="card-block pt-20">
-            <h3 class="card-title"><a [routerLink]="['/post', post.slug ]"> {{post.title}}</a></h3>
-            <p class="card-text">{{post.intro}}</p>
-            <button mat-raised-button [routerLink]="['/post', post.slug ]"
-                    class="btn bg-primary float-right btn-home-header">Read More
-            </button>
+            <a [routerLink]="['/post', post.slug ]"><h3 class="card-title"> {{post.title}}</h3>
+              <p class="card-text">{{post.intro}}</p></a>
           </div>
         </div>
       </div>
@@ -42,10 +34,8 @@
             <img src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="element 03" width="170" class="card-shadow">
           </div>
           <div class="card-block pt-20">
-            <h3 class="card-title"><a [routerLink]="['/post', post.slug ]"> {{post.title}}</a></h3>
-            <p class="card-text">{{post.intro}}</p>
-            <button [routerLink]="['/post', post.slug ]" class="btn bg-primary float-right btn-home-header">Read More
-            </button>
+            <a [routerLink]="['/post', post.slug ]"><h3 class="card-title">{{post.title}}</h3>
+              <p class="card-text">{{post.intro}}</p></a>
           </div>
         </div>
       </div>
@@ -58,10 +48,8 @@
             <img src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="element 07" width="170" class="card-shadow">
           </div>
           <div class="card-block pt-20">
-            <h3 class="card-title"><a [routerLink]="['/post', post.slug ]"> {{post.title}}</a></h3>
-            <p class="card-text">{{post.intro}}</p>
-            <button [routerLink]="['/post', post.slug ]" class="btn bg-primary float-right btn-home-header">Read More
-            </button>
+            <a [routerLink]="['/post', post.slug ]"><h3 class="card-title">{{post.title}}</h3>
+              <p class="card-text">{{post.intro}}</p></a>
           </div>
         </div>
       </div>
@@ -102,22 +90,7 @@
 
   <div class="right-col">
 
-    <!-- Vertical Nav -->
-
-<!--    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>-->
+    <!-- Vertical Nav Beginning -->
 
     <app-tag-menu></app-tag-menu>
 

@@ -311,7 +311,7 @@ app-home > .container > .row > .card-container > .card > .card-body > .card-bloc
   float: right;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 769px) {
 
   .left-col {
     width: 100%;
@@ -328,7 +328,19 @@ app-home > .container > .row > .card-container > .card > .card-body > .card-bloc
   .card-block > button.btn-home-header {
     position: absolute;
     bottom: 10px;
-    margin-left: 40px;
+    margin-left: -2px;
+  }
+
+  .card-container .card {
+    margin-bottom: 30px;
+    position: relative;
+    -webkit-perspective: 600px;
+    perspective: 600px;
+    width: 100%;
+    cursor: pointer;
+    z-index: 9;
+    border: 0px;
+    background: #f5faff;
   }
 
 }

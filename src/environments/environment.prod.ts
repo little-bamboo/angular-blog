@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  api_url: 'http://bambooiq.ddns.net:3000'
+  api_url: 'https://bambooiq.ddns.net:5000'
 
 };
