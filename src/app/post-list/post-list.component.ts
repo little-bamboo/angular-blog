@@ -5,7 +5,7 @@ import {environment} from '../../environments/environment';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PostListConfig} from '../core/models';
 import {PostListResolver} from './post-list-resolver.service';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-post-list',

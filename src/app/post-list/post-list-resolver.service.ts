@@ -1,3 +1,5 @@
+
+import {map, catchError} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@angular/router';
 
@@ -5,8 +7,7 @@ import {Post} from '../core/models';
 import {PostService} from '../core/services';
 import {PostListConfig} from '../core/models';
 
-import {Observable} from 'rxjs/Observable';
-import {catchError} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class PostListResolver implements Resolve<Post> {
@@ -31,8 +32,8 @@ export class PostListResolver implements Resolve<Post> {
     this.tagsListconfig.filters.tag = route.params['tag'];
     console.log(this.tagsListconfig);
 
-    return this.postService.query(this.tagsListconfig)
-      .map(posts => {
+    return this.postService.query(this.tagsListconfig).pipe(
+      map(posts => {
         if (posts) {
           const data = {};
           data['tag'] = route.params['tag'];
@@ -41,6 +42,6 @@ export class PostListResolver implements Resolve<Post> {
         } else {
           this.router.navigateByUrl('/');
         }
-      });
+      }));
   }
 }

@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {LoaderService, PostService} from '../core/services';
-import {Post} from '../core/models';
-import {environment} from '../../environments/environment';
+import { Component, OnInit } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { Post } from '../core/models';
+import { LoaderService, PostService } from '../core/services';
 
 
 @Component({
@@ -10,7 +10,6 @@ import {environment} from '../../environments/environment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
 
   postsList: Post[];
   postUrl = `${environment.api_url}`;
@@ -30,10 +29,10 @@ export class HomeComponent implements OnInit {
   getPosts() {
     this.postService.getPosts()
       .subscribe(data => {
+        console.log(data);
         this.postsList = data;
       });
 
   }
-
 
 }

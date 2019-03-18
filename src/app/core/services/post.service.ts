@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Post, PostListConfig} from '../models/index';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 
 import {HttpClient, HttpParams} from '@angular/common/http';
 
 // Import the rxjs operator for mapping observable type
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+
+
 import {environment} from '../../../environments/environment';
-import {map} from 'rxjs/operators/map';
+import {map} from 'rxjs/operators';
 
 import {ApiService} from './api.service';
 
@@ -77,10 +77,10 @@ export class PostService {
   deletePost(id: string): any {
     // Delete the object using the id
     const deleteUrl = `${this.postUrl}/${id}`;
-    return this.http.delete(deleteUrl)
-      .map(res => {
+    return this.http.delete(deleteUrl).pipe(
+      map(res => {
         return res;
-      });
+      }));
   }
 
 }

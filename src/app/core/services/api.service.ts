@@ -1,11 +1,15 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpHeaders, HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 
 import {JwtService} from './jwt.service';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
-import {catchError} from 'rxjs/operators/catchError';
+import {catchError} from 'rxjs/operators';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'client': 'brianschaper.com' })
+};
 
 @Injectable()
 export class ApiService {
@@ -20,7 +24,7 @@ export class ApiService {
   }
 
   get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
-    return this.http.get(`${environment.api_url}${path}`, {params})
+    return this.http.get(`${environment.api_url}${path}`, {params}, )
       .pipe(catchError(this.formatErrors));
   }
 
@@ -33,7 +37,7 @@ export class ApiService {
 
   post(path: string, body: Object = {}): Observable<any> {
     return this.http.post(
-      `${environment.api_url}${path}`, body
+      `${environment.api_url}${path}`, body, httpOptions
     ).pipe(catchError(this.formatErrors));
   }
 

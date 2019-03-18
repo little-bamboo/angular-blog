@@ -1,12 +1,11 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import {ReplaySubject} from 'rxjs/ReplaySubject';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable, ReplaySubject} from 'rxjs';
 
 import {JwtService} from './jwt.service';
 import {User} from '../models';
 import {ApiService} from './api.service';
-import {map} from 'rxjs/operators/map';
+import {map} from 'rxjs/operators';
 
 import {Router} from '@angular/router';
 import {LocalStorageService} from 'ngx-localstorage';
@@ -51,7 +50,7 @@ export class UserService {
 
   attemptAuth(type, credentials): Observable<User> {
     const route = (type === 'login') ? '/signin' : '';
-    return this.apiService.post('/api/auth' + route, {user: credentials})
+    return this.apiService.post('/api/auth' + route, credentials)
       .pipe(map(
         data => {
           this.jwtService.saveToken(data.user.token);

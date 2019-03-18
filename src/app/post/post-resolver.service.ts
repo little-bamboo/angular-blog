@@ -4,7 +4,7 @@ import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@ang
 import {Post} from '../core/models';
 import {PostService} from '../core/services';
 
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 
 @Injectable()

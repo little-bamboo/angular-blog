@@ -12,6 +12,7 @@ const adminRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AuthGuard],
     data: {
       breadcrumbs: true,
       text: 'Admin'
