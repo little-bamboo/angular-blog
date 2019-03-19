@@ -1,11 +1,11 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {RouterModule} from '@angular/router';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared';
+import { MaterialModule } from '../shared/material/material.module';
+import { PostListResolver } from './post-list-resolver.service';
+import { PostListComponent } from './post-list.component';
 
-import {PostListComponent} from './post-list.component';
-import {MaterialModule} from '../shared/material/material.module';
 
-import {SharedModule} from '../shared';
-import {PostListResolver} from './post-list-resolver.service';
 
 const postListRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -19,6 +19,10 @@ const postListRouting: ModuleWithProviders = RouterModule.forChild([
       breadcrumbs: true,
       text: '{{postsData.tag}}'
     }
+  },
+  {
+    path: 'posts',
+    component: PostListComponent
   }
 
 ]);

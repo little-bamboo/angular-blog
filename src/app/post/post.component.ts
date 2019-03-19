@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Post} from '../core/models';
-import {PostService} from '../core/services';
-import {SafeHtml} from '@angular/platform-browser';
-import {environment} from '../../environments/environment';
+import { Component, OnInit } from '@angular/core';
+import { SafeHtml } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
+import { Post } from '../core/models';
+import { PostService } from '../core/services';
 
 @Component({
   selector: 'app-post',
@@ -26,7 +26,6 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.getPost();
   }
 
@@ -35,7 +34,6 @@ export class PostComponent implements OnInit {
 
     this.postService.get(slug)
       .subscribe(data => {
-        // console.log('postdata: ', JSON.stringify(data));
         this.post = data;
         this.html = data.body;
       });

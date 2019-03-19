@@ -11,45 +11,50 @@
 <!-- Overlap Image Cards -->
 
 <div class="container">
+
   <div class="row">
-    <div *ngFor="let post of postsList | slice:0:1"
-         class="col-lg-4 col-md-4 col-sm-12 card-container pr-10 pl-10">
+
+    <div *ngFor="let post of postsList | slice:0:1" class="col-lg-4 col-md-4 col-sm-12 card-container pr-10 pl-10">
       <div class="card card-banner card-inverse bg-greensea text-center">
         <div class="card-body">
           <div class="card-img overlap">
             <img src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="post-image" width="170" class="card-shadow">
           </div>
           <div class="card-block pt-20">
-            <a [routerLink]="['/post', post.slug ]"><h3 class="card-title"> {{post.title}}</h3>
-              <p class="card-text">{{post.intro}}</p></a>
+            <a [routerLink]="['/post', post.slug ]">
+              <h3 class="card-title"> {{post.title}}</h3>
+              <p class="card-text">{{post.intro}}</p>
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <div *ngFor="let post of postsList | slice:1:2"
-         class="col-lg-4 col-md-4 col-sm-12 card-container pr-10 pl-10">
+    <div *ngFor="let post of postsList | slice:1:2" class="col-lg-4 col-md-4 col-sm-12 card-container pr-10 pl-10">
       <div class="card card-banner card-inverse bg-orange text-center">
         <div class="card-body">
           <div class="card-img overlap">
             <img src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="element 03" width="170" class="card-shadow">
           </div>
           <div class="card-block pt-20">
-            <a [routerLink]="['/post', post.slug ]"><h3 class="card-title">{{post.title}}</h3>
-              <p class="card-text">{{post.intro}}</p></a>
+            <a [routerLink]="['/post', post.slug ]">
+              <h3 class="card-title">{{post.title}}</h3>
+              <p class="card-text">{{post.intro}}</p>
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <div *ngFor="let post of postsList | slice:2:3"
-         class="col-lg-4 col-md-4 col-sm-12 card-container pr-10 pl-10">
+    <div *ngFor="let post of postsList | slice:2:3" class="col-lg-4 col-md-4 col-sm-12 card-container pr-10 pl-10">
       <div class="card card-banner card-inverse bg-blue text-center">
         <div class="card-body">
           <div class="card-img overlap">
             <img src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="element 07" width="170" class="card-shadow">
           </div>
           <div class="card-block pt-20">
-            <a [routerLink]="['/post', post.slug ]"><h3 class="card-title">{{post.title}}</h3>
-              <p class="card-text">{{post.intro}}</p></a>
+            <a [routerLink]="['/post', post.slug ]">
+              <h3 class="card-title">{{post.title}}</h3>
+              <p class="card-text">{{post.intro}}</p>
+            </a>
           </div>
         </div>
       </div>

@@ -1,11 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {PostService} from '../core/';
-import {Post} from '../core/';
-import {environment} from '../../environments/environment';
-import {ActivatedRoute, Router} from '@angular/router';
-import {PostListConfig} from '../core/models';
-import {PostListResolver} from './post-list-resolver.service';
-import {Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
+import { Post, PostService } from '../core/';
 
 @Component({
   selector: 'app-post-list',
@@ -23,16 +19,38 @@ export class PostListComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private postService: PostService
   ) {
   }
 
-  ngOnInit() {
-    console.log(this.route.snapshot.data);
 
-    this.postsList = this.route.snapshot.data.postsData.posts;
-    this.tag = this.route.snapshot.data.postsData.tag;
+
+  ngOnInit() {
+    // console.log(this.route.snapshot.data);
+
+    if (this.route.snapshot.data.postsData) {
+      this.postsList = this.route.snapshot.data.postsData.posts;
+      this.tag = this.route.snapshot.data.postsData.tag;
+
+      console.log(this.postsList);
+      console.log(this.tag);
+    } else {
+      console.log('get all posts');
+      this.getAllPosts();
+    }
+
+
 
   }
+
+  getAllPosts() {
+    this.postService.getPosts()
+      .subscribe(data => {
+        console.log(data);
+        this.postsList = data;
+      });
+  }
+
 
 
 }

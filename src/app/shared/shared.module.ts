@@ -1,14 +1,15 @@
-import {CommonModule} from '@angular/common';
-import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {RouterModule} from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { QuillModule } from 'ngx-quill';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { ListErrorsComponent } from './list-errors';
+import { ShowAuthedDirective } from './show-authed.directive';
+import { SlugifyPipe } from './slugify';
 
-import {ListErrorsComponent} from './list-errors';
 
-import {ShowAuthedDirective} from './show-authed.directive';
-import {SlugifyPipe} from './slugify';
-import {QuillModule} from 'ngx-quill';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import {QuillModule} from 'ngx-quill';
     RouterModule,
     QuillModule
   ],
-  declarations: [ShowAuthedDirective, ListErrorsComponent, SlugifyPipe],
+  declarations: [ShowAuthedDirective, ListErrorsComponent, SlugifyPipe, BreadcrumbComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -29,7 +30,8 @@ import {QuillModule} from 'ngx-quill';
     RouterModule,
     ShowAuthedDirective,
     ListErrorsComponent,
-    QuillModule
+    QuillModule,
+    BreadcrumbComponent
   ]
 })
 export class SharedModule {

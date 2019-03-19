@@ -1,16 +1,12 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {PostComponent} from './post.component';
-import {PostResolver} from './post-resolver.service';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { PostResolver } from './post-resolver.service';
+import { PostComponent } from './post.component';
 
 
 const routes: Routes = [
   {
     path: 'post',
-    data: {
-      breadcrumbs: false,
-      text: 'Post'
-    },
     children: [
       {
         path: ':slug',
@@ -19,8 +15,7 @@ const routes: Routes = [
           post: PostResolver
         },
         data: {
-          breadcrumbs: true,
-          text: '{{post.title}}'
+          breadcrumb: 'Post'
         }
       }
     ]

@@ -1,8 +1,11 @@
 <div class="container">
+  <app-breadcrumb></app-breadcrumb>
+
   <div *ngIf="post" class="card">
     <div class="card-header bg-primary">
       <ul class="tag-list">
-        <li *ngFor="let tag of post.tags" class="badge badge-pill badge-secondary"><a [routerLink]="['/posts', tag]">{{tag}}</a>
+        <li *ngFor="let tag of post.tags" class="badge badge-pill badge-secondary"><a
+            [routerLink]="['/posts', tag]">{{tag}}</a>
         </li>
       </ul>
       <h1 class="card-title text-lg-center font-weight-bold">{{post.title}}</h1>
@@ -20,4 +23,3 @@
     </div>
   </div>
 </div>
-
