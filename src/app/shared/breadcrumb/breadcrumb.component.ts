@@ -13,7 +13,6 @@ export class BreadcrumbComponent implements OnInit {
   public breadcrumbs: Breadcrumb[];
 
   constructor(private router: Router, private route: ActivatedRoute) {
-    console.log('construct breadcrumbs');
 
     const breadcrumb: Breadcrumb = {
       label: 'Home',
