@@ -15,6 +15,7 @@ export class GlobalErrorHandler extends ErrorHandler {
     this.zone.run(() => {
 
       console.log('global error');
+      console.log(error);
 
       if (!this.snacker) {
         this.snacker = this.injector.get(MatSnackBar);

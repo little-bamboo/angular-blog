@@ -18,7 +18,8 @@
       <div class="card card-banner card-inverse bg-greensea text-center">
         <div class="card-body">
           <div class="card-img overlap">
-            <img src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="post-image" width="170" class="card-shadow">
+            <img src="https://brianschaper.com/public/uploads/images/{{post.introImage}}" alt="post-image" width="170"
+              class="card-shadow">
           </div>
           <div class="card-block pt-20">
             <a [routerLink]="['/post', post.slug ]">
@@ -33,7 +34,8 @@
       <div class="card card-banner card-inverse bg-orange text-center">
         <div class="card-body">
           <div class="card-img overlap">
-            <img src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="element 03" width="170" class="card-shadow">
+            <img src="https://brianschaper.com/public/uploads/images/{{post.introImage}}" alt="element 03" width="170"
+              class="card-shadow">
           </div>
           <div class="card-block pt-20">
             <a [routerLink]="['/post', post.slug ]">
@@ -48,7 +50,8 @@
       <div class="card card-banner card-inverse bg-blue text-center">
         <div class="card-body">
           <div class="card-img overlap">
-            <img src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="element 07" width="170" class="card-shadow">
+            <img src="https://brianschaper.com/public/uploads/images/{{post.introImage}}" alt="element 07" width="170"
+              class="card-shadow">
           </div>
           <div class="card-block pt-20">
             <a [routerLink]="['/post', post.slug ]">
@@ -75,7 +78,8 @@
       <!-- Card Tiles -->
       <div class="card tile" *ngFor="let post of postsList | slice:3:20">
         <div class="card-body">
-          <img class="card-img-top img-fluid" src="{{postUrl}}/uploads/images/{{post.introImage}}" alt="post-image">
+          <img class="card-img-top img-fluid" src="https://brianschaper.com/public/uploads/images/{{post.introImage}}"
+            alt="post-image">
           <div class="card-block">
             <h4 class="card-title">{{post.title}}</h4>
             <p class="card-text">{{post.intro}}</p>

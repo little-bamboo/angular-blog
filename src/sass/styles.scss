@@ -19,7 +19,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 // Quill Styling
 @import "../../node_modules/quill/dist/quill.core.css";
-@import "../../node_modules/quill/dist/quill.bubble.css";
+// @import "../../node_modules/quill/dist/quill.bubble.css";
 @import "../../node_modules/quill/dist/quill.snow.css";
 
 // specify theme class eg: <body class="my-theme"> ... </body>
@@ -39,6 +39,26 @@ body {
   padding: 80px 0 0 0;
   -webkit-font-smoothing: antialiased;
   min-height: 100%;
+}
+
+// quill css change
+.ql-editor pre.ql-syntax {
+    background-color: #23241f;
+    color: #f8f8f2;
+    overflow: visible;
+    padding: 15px;
+}
+
+.ql-container.ql-snow.ql-post {
+    border: 0px;
+    font-size: 18px;
+
+}
+
+// tag menu 
+
+.tag-menu{
+  padding: 10px 0px 0px 10px;
 }
 
 // breadcrumbs
@@ -413,5 +433,5 @@ label.bg-primary {
 
 // QL-EDITOR Styling
 .ql-editor{
-  //font-family: $font-roboto;
+  font-family: $font-roboto;
 }
